@@ -36,6 +36,25 @@
             position: relative;
         }
         
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 16px;
+            background: var(--accent);
+            color: var(--accent-foreground);
+            padding: 16px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            z-index: 10000;
+            transition: top 0.2s;
+        }
+        
+        .skip-link:focus {
+            top: 16px;
+        }
+        
         /* Entrance Animations */
         @keyframes fadeInUp {
             from {
@@ -97,14 +116,26 @@
             100% { transform: translateX(-50%); }
         }
         
-        @keyframes marquee-fast {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        @keyframes marquee-slow {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        /* Reduced Motion Preference */
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-inner,
+            .stats-inner,
+            .footer-marquee-inner {
+                animation: none;
+            }
+            
+            .section-inner {
+                animation: none;
+            }
+            
+            .cta-button:hover,
+            .cta-button:active {
+                transform: none;
+            }
+            
+            .area-card:hover h3 {
+                transform: none;
+            }
         }
         
         /* Hero */
@@ -203,6 +234,16 @@
             height: 80px;
             padding: 0 64px;
             font-size: 1.125rem;
+        }
+        
+        .cta-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+        
+        .cta-button:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--accent);
         }
         
         /* Stats Marquee */
@@ -794,6 +835,9 @@
     </style>
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#capabilities" class="skip-link">Skip to main content</a>
+    
     <!-- Top Marquee -->
     <div class="marquee">
         <div class="marquee-inner">
@@ -872,17 +916,17 @@
             
             <div class="pillars-grid">
                 <div class="pillar">
-                    <div class="pillar-number">01</div>
+                    <div class="pillar-number" aria-hidden="true">01</div>
                     <h3>KNOW ANYTHING</h3>
                     <p class="pillar-label">Instant answers across all your tools, docs, and history. No more digging through Slack threads or lost emails.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-number">02</div>
+                    <div class="pillar-number" aria-hidden="true">02</div>
                     <h3>DEPLOY ANYTHING</h3>
                     <p class="pillar-label">Ship dashboards, reports, landing pages, automations. Describe what you need. It's live in hours.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-number">03</div>
+                    <div class="pillar-number" aria-hidden="true">03</div>
                     <h3>BUILD ANYTHING</h3>
                     <p class="pillar-label">Code, research, analysis, integrations. Complex work that used to take weeks. Now takes a conversation.</p>
                 </div>
