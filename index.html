@@ -36,6 +36,22 @@
             position: relative;
         }
         
+        /* Entrance Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .section-inner {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
         /* Noise Texture Overlay */
         body::before {
             content: '';
@@ -63,7 +79,8 @@
         
         .marquee-inner {
             display: inline-block;
-            animation: marquee 20s linear infinite;
+            animation: marquee 15s linear infinite;
+            will-change: transform;
         }
         
         .marquee-text {
@@ -76,6 +93,16 @@
         }
         
         @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        @keyframes marquee-fast {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        @keyframes marquee-slow {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
@@ -188,7 +215,8 @@
         
         .stats-inner {
             display: inline-flex;
-            animation: marquee 25s linear infinite;
+            animation: marquee 12s linear infinite;
+            will-change: transform;
         }
         
         .stat-item {
@@ -319,7 +347,7 @@
         .area-card {
             padding: 48px;
             background: var(--background);
-            transition: all 0.3s;
+            transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out;
         }
         
         .area-card:hover {
@@ -334,7 +362,7 @@
         }
         
         .area-card:hover p {
-            opacity: 0.8;
+            opacity: 0.7;
         }
         
         .area-card:hover .area-example {
@@ -344,6 +372,14 @@
         
         .area-card:hover .area-example .label {
             color: var(--accent);
+        }
+        
+        .area-card h3 {
+            transition: color 0.2s ease-in-out, transform 0.3s ease-in-out;
+        }
+        
+        .area-card:hover h3 {
+            transform: translateX(8px);
         }
         
         .area-icon {
@@ -622,7 +658,8 @@
         
         .footer-marquee-inner {
             display: inline-block;
-            animation: marquee 15s linear infinite;
+            animation: marquee 10s linear infinite;
+            will-change: transform;
         }
         
         .footer-marquee-text {
