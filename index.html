@@ -752,6 +752,45 @@
             text-align: center;
         }
         
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 64px auto 32px;
+        }
+        
+        .pricing-grid .price-box {
+            margin: 0;
+        }
+        
+        .price-amount .number-small {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+        
+        .pricing-note {
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: clamp(0.875rem, 1.25vw, 1rem);
+            max-width: 600px;
+            margin: 32px auto;
+        }
+        
+        .price-cta-center {
+            text-align: center;
+            margin-top: 32px;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         /* Footer Marquee */
         .footer-marquee {
             background: var(--accent);
@@ -1150,27 +1189,50 @@
     <section class="section pricing-section" id="pricing">
         <div class="section-inner">
             <div class="section-label">// PRICING</div>
-            <h2>PAY ONCE.<br>ARCHIE WORKS FOREVER.</h2>
+            <h2>WHITE-GLOVE SETUP.<br>ONGOING PARTNERSHIP.</h2>
             
-            <div class="price-box">
-                <div class="price-header">
-                    <h3>HIRE ARCHIE</h3>
-                    <span>Your AI Chief of Staff, fully onboarded</span>
+            <div class="pricing-grid">
+                <div class="price-box">
+                    <div class="price-header">
+                        <h3>ONBOARDING</h3>
+                        <span>The white-glove build</span>
+                    </div>
+                    <div class="price-amount">
+                        <div class="number">$10K</div>
+                        <div class="note">ONE-TIME</div>
+                    </div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Deep-dive into your business</li>
+                        <li><span class="check">✓</span> Learn your people & workflows</li>
+                        <li><span class="check">✓</span> Custom Archie build</li>
+                        <li><span class="check">✓</span> Integration with all your tools</li>
+                        <li><span class="check">✓</span> 30-day optimization period</li>
+                    </ul>
                 </div>
-                <div class="price-amount">
-                    <div class="number">$10K</div>
-                    <div class="note">ONE-TIME ONBOARDING • THEN ARCHIE WORKS FREE, FOREVER</div>
+                
+                <div class="price-box">
+                    <div class="price-header">
+                        <h3>PARTNERSHIP</h3>
+                        <span>Keep Archie sharp</span>
+                    </div>
+                    <div class="price-amount">
+                        <div class="number-small">FROM $500</div>
+                        <div class="note">PER MONTH</div>
+                    </div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Ongoing calibration & updates</li>
+                        <li><span class="check">✓</span> Adapt to business changes</li>
+                        <li><span class="check">✓</span> Priority support</li>
+                        <li><span class="check">✓</span> New capability rollouts</li>
+                        <li><span class="check">✓</span> Quarterly business reviews</li>
+                    </ul>
                 </div>
-                <ul class="price-features">
-                    <li><span class="check">✓</span> Full workflow analysis & setup</li>
-                    <li><span class="check">✓</span> Integration with all your tools</li>
-                    <li><span class="check">✓</span> Custom training on your business</li>
-                    <li><span class="check">✓</span> 30-day optimization period</li>
-                    <li><span class="check">✓</span> You own all keys & data</li>
-                </ul>
-                <div class="price-cta">
-                    <a href="#" class="cta-button large">START ONBOARDING</a>
-                </div>
+            </div>
+            
+            <p class="pricing-note">API costs (OpenAI, Claude, etc.) paid directly by you — we don't mark up or touch your usage.</p>
+            
+            <div class="price-cta-center">
+                <a href="#" class="cta-button large">START ONBOARDING</a>
             </div>
         </div>
     </section>
