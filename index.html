@@ -634,6 +634,83 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         
+        /* System not Software */
+        .system-section {
+            background: #fffbeb;
+        }
+        
+        .system-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .system-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .system-header h2 {
+            margin-bottom: 0;
+        }
+        
+        .system-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .system-col {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid var(--border);
+        }
+        
+        .system-col.highlight {
+            background: var(--bg-dark);
+            color: white;
+            border: none;
+        }
+        
+        .system-col h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        
+        .system-col ul {
+            list-style: none;
+        }
+        
+        .system-col ul li {
+            padding: 8px 0;
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .system-col ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .system-col.highlight ul li {
+            color: #d1d5db;
+            border-bottom-color: #374151;
+        }
+        
+        .system-note {
+            text-align: center;
+            font-size: 1.125rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 600px) {
+            .system-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         /* Pricing */
         .pricing-section {
             text-align: center;
@@ -1090,6 +1167,41 @@
                     <h3>You own it</h3>
                     <p>All API keys are yours. Your data stays yours. No ongoing subscription. It's your system.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- System not Software -->
+    <section class="section system-section">
+        <div class="container">
+            <div class="system-box">
+                <div class="system-header">
+                    <div class="section-label">Important</div>
+                    <h2>Archie is a system, not a software.</h2>
+                </div>
+                <div class="system-grid">
+                    <div class="system-col">
+                        <h4>❌ Not Software</h4>
+                        <ul>
+                            <li>Monthly subscription</li>
+                            <li>Per-seat pricing</li>
+                            <li>Their servers, their rules</li>
+                            <li>Data leaves your control</li>
+                            <li>Vendor lock-in</li>
+                        </ul>
+                    </div>
+                    <div class="system-col highlight">
+                        <h4>✓ A System You Own</h4>
+                        <ul>
+                            <li>One-time installation</li>
+                            <li>Runs on your infrastructure</li>
+                            <li>You hold all the API keys</li>
+                            <li>Your data stays yours</li>
+                            <li>No ongoing dependency</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="system-note">We build it. We train it on your business. We hand you the keys. Then it's yours — forever.</p>
             </div>
         </div>
     </section>
