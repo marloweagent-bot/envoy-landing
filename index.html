@@ -757,6 +757,135 @@
             font-weight: 600;
         }
         
+        /* The Shift */
+        .shift-section {
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+        
+        .shift-comparison {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            align-items: stretch;
+            margin: 64px 0 48px;
+            flex-wrap: wrap;
+        }
+        
+        .shift-card {
+            flex: 1;
+            max-width: 340px;
+            min-width: 280px;
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+        }
+        
+        .shift-before {
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .shift-after {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border: 2px solid #334155;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+        }
+        
+        .shift-era {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+        
+        .shift-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .shift-before h3 {
+            color: #64748b;
+        }
+        
+        .shift-after h3 {
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .shift-icon {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+        
+        .shift-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+        
+        .shift-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            font-size: 1.0625rem;
+        }
+        
+        .shift-before .shift-list li {
+            color: #64748b;
+        }
+        
+        .shift-after .shift-list li {
+            border-bottom-color: rgba(255,255,255,0.1);
+            color: #cbd5e1;
+        }
+        
+        .shift-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .shift-verdict {
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding-top: 20px;
+            border-top: 2px solid rgba(0,0,0,0.08);
+        }
+        
+        .shift-before .shift-verdict {
+            color: #94a3b8;
+        }
+        
+        .shift-after .shift-verdict {
+            border-top-color: rgba(255,255,255,0.15);
+            color: #60a5fa;
+        }
+        
+        .shift-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .shift-punchline {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .shift-punchline p {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -799,6 +928,24 @@
             .economics-highlight {
                 font-size: 2.5rem;
             }
+            
+            .shift-comparison {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .shift-arrow {
+                transform: rotate(90deg);
+                margin: -8px 0;
+            }
+            
+            .shift-card {
+                max-width: 100%;
+            }
+            
+            .shift-punchline p {
+                font-size: 1.375rem;
+            }
         }
     </style>
 </head>
@@ -819,6 +966,48 @@
                     <div class="integration-logo">Gmail</div>
                     <div class="integration-logo">Calendar</div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section shift-section">
+        <div class="container">
+            <div class="section-label">The Shift</div>
+            <h2>Something just changed.</h2>
+            <p class="section-text">In 2024, AI got a spine. Large language models could always process language — now they can <em>reason</em>. They can hold context, weigh tradeoffs, and execute multi-step tasks with the reliability that used to require a human.</p>
+            
+            <div class="shift-comparison">
+                <div class="shift-card shift-before">
+                    <div class="shift-era">Before</div>
+                    <h3>Reactive AI</h3>
+                    <div class="shift-icon">💬</div>
+                    <ul class="shift-list">
+                        <li>Answers questions</li>
+                        <li>Summarizes content</li>
+                        <li>Suggests options</li>
+                        <li>Waits for prompts</li>
+                    </ul>
+                    <div class="shift-verdict">You do the work.<br>AI assists.</div>
+                </div>
+                
+                <div class="shift-arrow">→</div>
+                
+                <div class="shift-card shift-after">
+                    <div class="shift-era">Now</div>
+                    <h3>Proactive AI</h3>
+                    <div class="shift-icon">⚡</div>
+                    <ul class="shift-list">
+                        <li>Codes its own solutions</li>
+                        <li>Solves problems end-to-end</li>
+                        <li>Deploys and executes</li>
+                        <li>Acts on your behalf</li>
+                    </ul>
+                    <div class="shift-verdict">AI does the work.<br>You make decisions.</div>
+                </div>
+            </div>
+            
+            <div class="shift-punchline">
+                <p>This is the lever to your labor you've been waiting for.</p>
             </div>
         </div>
     </section>
