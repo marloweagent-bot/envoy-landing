@@ -27,59 +27,82 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
         }
         
         /* Hero */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 80px 24px;
-            background: linear-gradient(180deg, #f0f4ff 0%, #fafafa 100%);
+            padding: 120px 32px;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
         
-        .badge {
-            background: var(--accent);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 24px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 900px;
+        }
+        
+        .hero-label {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 32px;
             letter-spacing: 0.02em;
         }
         
         h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.75rem, 6vw, 4.5rem);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 24px;
-            max-width: 800px;
+            margin-bottom: 32px;
             letter-spacing: -0.03em;
         }
         
         h1 span {
-            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        .hero-sub {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
+        .hero-text {
+            font-size: 1.375rem;
+            color: #94a3b8;
+            max-width: 680px;
+            margin-bottom: 48px;
+            line-height: 1.7;
         }
         
         .cta-button {
-            background: var(--accent);
-            color: white;
+            background: white;
+            color: var(--bg-dark);
             border: none;
-            padding: 16px 32px;
+            padding: 18px 36px;
             font-size: 1.125rem;
             font-weight: 600;
             border-radius: 12px;
@@ -90,16 +113,52 @@
         }
         
         .cta-button:hover {
-            background: var(--accent-light);
             transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
-        /* Problem Section */
+        .cta-button.dark {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Integrations */
+        .integrations {
+            display: flex;
+            gap: 32px;
+            margin-top: 64px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .integrations span {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        .integration-logos {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .integration-logo {
+            background: rgba(255,255,255,0.1);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        /* Section */
         .section {
-            padding: 100px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 120px 32px;
+        }
+        
+        .section-dark {
+            background: var(--bg-dark);
+            color: white;
         }
         
         .section-label {
@@ -107,159 +166,228 @@
             font-weight: 600;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 16px;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
         }
         
-        h2 {
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-        
-        .section-text {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin-bottom: 48px;
-        }
-        
-        /* Problem cards */
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 48px;
-        }
-        
-        .problem-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-        }
-        
-        .problem-card .old {
-            color: #dc2626;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.875rem;
-        }
-        
-        .problem-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-        }
-        
-        .problem-card p {
-            color: var(--text-muted);
-            font-size: 0.9375rem;
-        }
-        
-        /* Solution */
-        .solution-section {
-            background: var(--bg-dark);
-            color: white;
-            padding: 100px 24px;
-        }
-        
-        .solution-section .section-label {
+        .section-dark .section-label {
             color: #60a5fa;
         }
         
-        .solution-section h2 {
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            max-width: 700px;
+        }
+        
+        .section-text {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin-bottom: 64px;
+            line-height: 1.8;
+        }
+        
+        .section-dark .section-text {
+            color: #94a3b8;
+        }
+        
+        /* Problem */
+        .problem-statement {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 32px 40px;
+            border-radius: 0 16px 16px 0;
+            margin: 48px 0 64px;
+            max-width: 700px;
+        }
+        
+        .problem-statement p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #92400e;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        /* Cockpit visual */
+        .cockpit-visual {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 24px;
+            padding: 48px;
+            margin: 64px 0;
+            border: 1px solid #334155;
+        }
+        
+        .cockpit-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .cockpit-header h3 {
             color: white;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
         }
         
-        .solution-section .section-text {
-            color: #a1a1aa;
+        .cockpit-header p {
+            color: #64748b;
         }
         
-        .capability-grid {
+        .cockpit-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         
-        .capability-card {
-            background: #18181b;
-            border: 1px solid #27272a;
+        .cockpit-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #334155;
             border-radius: 16px;
-            padding: 32px;
+            padding: 28px;
+            text-align: center;
             transition: all 0.2s;
         }
         
-        .capability-card:hover {
-            border-color: var(--accent);
+        .cockpit-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: #60a5fa;
             transform: translateY(-4px);
         }
         
-        .capability-icon {
-            width: 48px;
-            height: 48px;
+        .cockpit-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        
+        .cockpit-card h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .cockpit-card p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        /* What it does */
+        .capability-list {
+            display: grid;
+            gap: 32px;
+            max-width: 800px;
+        }
+        
+        .capability-item {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        
+        .capability-number {
+            width: 64px;
+            height: 64px;
             background: linear-gradient(135deg, var(--accent), #7c3aed);
-            border-radius: 12px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-weight: 700;
+            color: white;
         }
         
-        .capability-card h3 {
-            font-size: 1.25rem;
+        .capability-content h3 {
+            font-size: 1.375rem;
             margin-bottom: 12px;
             color: white;
         }
         
-        .capability-card p {
-            color: #a1a1aa;
-            font-size: 0.9375rem;
-            line-height: 1.6;
+        .capability-content p {
+            color: #94a3b8;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+        
+        /* Solve section */
+        .solve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 48px;
+        }
+        
+        .solve-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .solve-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+        
+        .solve-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .solve-card h4 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+        }
+        
+        .solve-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
         
         /* Process */
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
         }
         
         .process-step {
-            text-align: center;
+            position: relative;
         }
         
         .process-number {
-            width: 56px;
-            height: 56px;
+            width: 48px;
+            height: 48px;
             background: var(--accent);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin: 0 auto 20px;
+            margin-bottom: 24px;
         }
         
         .process-step h3 {
-            font-size: 1.125rem;
-            margin-bottom: 8px;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
         }
         
         .process-step p {
             color: var(--text-muted);
-            font-size: 0.9375rem;
+            font-size: 1rem;
+            line-height: 1.7;
         }
         
         /* Pricing */
         .pricing-section {
-            background: linear-gradient(180deg, #fafafa 0%, #f0f4ff 100%);
             text-align: center;
         }
         
@@ -267,40 +395,48 @@
             background: white;
             border: 2px solid var(--accent);
             border-radius: 24px;
-            padding: 48px;
-            max-width: 480px;
-            margin: 48px auto 0;
-            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+            padding: 56px 48px;
+            max-width: 520px;
+            margin: 56px auto 0;
+            box-shadow: 0 24px 64px rgba(37, 99, 235, 0.12);
         }
         
         .pricing-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 24px;
-        }
-        
-        .price {
-            font-size: 3.5rem;
-            font-weight: 800;
             margin-bottom: 8px;
         }
         
-        .price-sub {
+        .pricing-subtitle {
             color: var(--text-muted);
             margin-bottom: 32px;
         }
         
+        .price {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        
+        .price-sub {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.125rem;
+        }
+        
         .price-includes {
             text-align: left;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
         
         .price-includes li {
-            padding: 12px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--border);
             list-style: none;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
+            font-size: 1.0625rem;
         }
         
         .price-includes li:last-child {
@@ -309,58 +445,60 @@
         
         .check {
             color: #22c55e;
-            font-weight: bold;
+            font-size: 1.25rem;
         }
         
         /* CTA Section */
         .cta-section {
-            background: var(--bg-dark);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
             text-align: center;
-            padding: 100px 24px;
+            padding: 120px 32px;
         }
         
         .cta-section h2 {
             color: white;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-section p {
-            color: #a1a1aa;
+            color: #94a3b8;
             font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        .cta-section .cta-button {
-            background: white;
-            color: var(--bg-dark);
-        }
-        
-        .cta-section .cta-button:hover {
-            background: #f0f0f0;
+            max-width: 560px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 24px;
+            padding: 48px 32px;
             color: var(--text-muted);
-            font-size: 0.875rem;
+            font-size: 0.9rem;
         }
         
         /* Responsive */
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             .hero {
-                padding: 60px 20px;
-                min-height: auto;
+                padding: 80px 24px;
             }
             
             .section {
-                padding: 60px 20px;
+                padding: 80px 24px;
+            }
+            
+            .capability-item {
+                grid-template-columns: 1fr;
             }
             
             .pricing-card {
+                padding: 40px 28px;
+            }
+            
+            .cockpit-visual {
                 padding: 32px 24px;
             }
         }
@@ -368,127 +506,217 @@
 </head>
 <body>
     <section class="hero">
-        <div class="badge">AI Chief of Staff</div>
-        <h1>Stop executing.<br>Start <span>leading.</span></h1>
-        <p class="hero-sub">Envoy is your AI Chief of Staff — handling communications, surfacing decisions, and keeping you focused on what only you can do.</p>
-        <a href="#pricing" class="cta-button">Get Your Envoy</a>
-    </section>
-    
-    <section class="section">
-        <div class="section-label">The Problem</div>
-        <h2>Work has changed. Leadership hasn't.</h2>
-        <p class="section-text">Leaders spend 80% of their time on execution — emails, scheduling, data gathering, follow-ups. That leaves 20% for actual leadership. AI inverts this.</p>
-        
-        <div class="problem-grid">
-            <div class="problem-card">
-                <div class="old">Before</div>
-                <h3>Inbox overwhelm</h3>
-                <p>Hours lost to emails that could be drafted, delegated, or ignored.</p>
-            </div>
-            <div class="problem-card">
-                <div class="old">Before</div>
-                <h3>Decision fog</h3>
-                <p>Important decisions buried under urgent but trivial ones.</p>
-            </div>
-            <div class="problem-card">
-                <div class="old">Before</div>
-                <h3>Context switching</h3>
-                <p>Constantly pulled between strategy and operations.</p>
-            </div>
-            <div class="problem-card">
-                <div class="old">Before</div>
-                <h3>Dropped balls</h3>
-                <p>Follow-ups forgotten. Commitments missed. Trust eroded.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section class="solution-section">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-label">The Solution</div>
-            <h2>Your AI Chief of Staff</h2>
-            <p class="section-text">Envoy handles the execution so you can focus on judgment. It's not another tool — it's leverage.</p>
+        <div class="hero-content">
+            <div class="hero-label">AI Chief of Staff</div>
+            <h1>Step into your <span>cockpit.</span></h1>
+            <p class="hero-text">AI has given every leader the ability to sit at the helm of their department with a perfect view of what's happening — across Slack, Notion, ClickUp, email, and everything else. This is your command center.</p>
+            <a href="#pricing" class="cta-button">Get Your Envoy</a>
             
-            <div class="capability-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">💬</div>
-                    <h3>Communications</h3>
-                    <p>Drafts emails, prioritizes your inbox, handles follow-ups. You review and send — or let Envoy handle it entirely.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">📊</div>
-                    <h3>Financial Visibility</h3>
-                    <p>Pulls data from your systems, surfaces anomalies, prepares reports. Know your numbers without digging.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">🎯</div>
-                    <h3>Decision Triaging</h3>
-                    <p>Identifies decisions that need your judgment, ranks by leverage, provides context and recommendations.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">⏰</div>
-                    <h3>Auto Reminders</h3>
-                    <p>Tracks commitments, nudges follow-ups, ensures nothing falls through the cracks. Your external memory.</p>
+            <div class="integrations">
+                <span>Connects to:</span>
+                <div class="integration-logos">
+                    <div class="integration-logo">Slack</div>
+                    <div class="integration-logo">Notion</div>
+                    <div class="integration-logo">ClickUp</div>
+                    <div class="integration-logo">Gmail</div>
+                    <div class="integration-logo">Calendar</div>
                 </div>
             </div>
         </div>
     </section>
     
     <section class="section">
-        <div class="section-label">How It Works</div>
-        <h2>From zero to operational in weeks</h2>
-        <p class="section-text">We don't just hand you software. We build your AI Chief of Staff with you.</p>
-        
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="process-number">1</div>
-                <h3>We Work With You</h3>
-                <p>Deep dive into your workflow, priorities, and communication style.</p>
+        <div class="container">
+            <div class="section-label">The Question</div>
+            <h2>How many times have you stood in the middle of your business and asked yourself:</h2>
+            
+            <div class="problem-statement">
+                <p>"Are we working on the right thing right now?"</p>
             </div>
-            <div class="process-step">
-                <div class="process-number">2</div>
-                <h3>We Learn Your Business</h3>
-                <p>Connect your tools, ingest your context, understand your team.</p>
+            
+            <p class="section-text">You have the data. It's scattered across a dozen tools. You have the team. They're waiting on you. What you don't have is a unified view — and the time to make sense of it all.</p>
+            
+            <div class="cockpit-visual">
+                <div class="cockpit-header">
+                    <h3>Your AI Cockpit</h3>
+                    <p>A unified view across everything that matters</p>
+                </div>
+                <div class="cockpit-grid">
+                    <div class="cockpit-card">
+                        <div class="cockpit-icon">💬</div>
+                        <h4>Slack</h4>
+                        <p>Every channel, summarized</p>
+                    </div>
+                    <div class="cockpit-card">
+                        <div class="cockpit-icon">📝</div>
+                        <h4>Notion</h4>
+                        <p>Docs & wikis in context</p>
+                    </div>
+                    <div class="cockpit-card">
+                        <div class="cockpit-icon">✅</div>
+                        <h4>ClickUp</h4>
+                        <p>Tasks & projects status</p>
+                    </div>
+                    <div class="cockpit-card">
+                        <div class="cockpit-icon">📧</div>
+                        <h4>Email</h4>
+                        <p>Inbox prioritized</p>
+                    </div>
+                    <div class="cockpit-card">
+                        <div class="cockpit-icon">📊</div>
+                        <h4>Data</h4>
+                        <p>Metrics & anomalies</p>
+                    </div>
+                    <div class="cockpit-card">
+                        <div class="cockpit-icon">📅</div>
+                        <h4>Calendar</h4>
+                        <p>Time & commitments</p>
+                    </div>
+                </div>
             </div>
-            <div class="process-step">
-                <div class="process-number">3</div>
-                <h3>We Install</h3>
-                <p>Deploy your Envoy with full security — you own all keys and data.</p>
+        </div>
+    </section>
+    
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-label">What Envoy Does</div>
+            <h2>Perfect view. Highest leverage. Biggest problems. Solved.</h2>
+            <p class="section-text">Your AI Chief of Staff doesn't just watch — it acts.</p>
+            
+            <div class="capability-list">
+                <div class="capability-item">
+                    <div class="capability-number">1</div>
+                    <div class="capability-content">
+                        <h3>Gives you a perfect view</h3>
+                        <p>Envoy ingests everything — Slack, email, docs, tasks, data — and gives you a unified picture of your department. No more tab switching. No more "let me check on that."</p>
+                    </div>
+                </div>
+                <div class="capability-item">
+                    <div class="capability-number">2</div>
+                    <div class="capability-content">
+                        <h3>Surfaces opportunities for leverage</h3>
+                        <p>Not all work is equal. Envoy identifies the decisions, conversations, and actions that will have the biggest downstream impact — and puts them in front of you first.</p>
+                    </div>
+                </div>
+                <div class="capability-item">
+                    <div class="capability-number">3</div>
+                    <div class="capability-content">
+                        <h3>Points you to the biggest problem</h3>
+                        <p>Every day, Envoy answers: "What's the one thing that needs my attention right now?" It triages so you don't have to.</p>
+                    </div>
+                </div>
+                <div class="capability-item">
+                    <div class="capability-number">4</div>
+                    <div class="capability-content">
+                        <h3>Helps you solve it — in real time</h3>
+                        <p>Envoy doesn't just inform. It deploys sub-agents to research, draft, build, and execute. Need a report? A website? A code fix? Done.</p>
+                    </div>
+                </div>
             </div>
-            <div class="process-step">
-                <div class="process-number">4</div>
-                <h3>You Go Live</h3>
-                <p>Start with human-in-the-loop, expand autonomy as trust builds.</p>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Agentic AI</div>
+            <h2>It doesn't just watch. It solves.</h2>
+            <p class="section-text">Envoy comes with sub-agents that can proactively tackle problems as they arise.</p>
+            
+            <div class="solve-grid">
+                <div class="solve-card">
+                    <div class="solve-icon">🔬</div>
+                    <h4>Research</h4>
+                    <p>Deep dives on competitors, markets, and opportunities</p>
+                </div>
+                <div class="solve-card">
+                    <div class="solve-icon">🌐</div>
+                    <h4>Websites</h4>
+                    <p>Landing pages and tools, built and deployed</p>
+                </div>
+                <div class="solve-card">
+                    <div class="solve-icon">💻</div>
+                    <h4>Code</h4>
+                    <p>Scripts, automations, and integrations</p>
+                </div>
+                <div class="solve-card">
+                    <div class="solve-icon">📄</div>
+                    <h4>Documents</h4>
+                    <p>Reports, proposals, and analysis</p>
+                </div>
+                <div class="solve-card">
+                    <div class="solve-icon">📧</div>
+                    <h4>Communications</h4>
+                    <p>Drafts, follow-ups, and outreach</p>
+                </div>
+                <div class="solve-card">
+                    <div class="solve-icon">🚀</div>
+                    <h4>Deployments</h4>
+                    <p>Ship changes without waiting on anyone</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-label">How It Works</div>
+            <h2>From zero to cockpit in weeks</h2>
+            <p class="section-text">We don't just install software. We build your AI Chief of Staff with you.</p>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>We work with you</h3>
+                    <p>Deep dive into your workflow, your tools, your priorities, and your communication style.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>We learn your business</h3>
+                    <p>Connect your tools, ingest your context, understand your team and how you operate.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>We install</h3>
+                    <p>Deploy your Envoy with full security. You own all API keys. Your data stays yours.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>We get you online</h3>
+                    <p>Go live with human-in-the-loop. Expand autonomy as trust builds. Never look back.</p>
+                </div>
             </div>
         </div>
     </section>
     
     <section class="section pricing-section" id="pricing">
-        <div class="section-label">Pricing</div>
-        <h2>One investment. Permanent leverage.</h2>
-        <p class="section-text">No monthly fees. No per-seat pricing. Just your AI Chief of Staff, working for you.</p>
-        
-        <div class="pricing-card">
-            <h3>Envoy Installation</h3>
-            <div class="price">$10,000</div>
-            <div class="price-sub">One-time setup · No monthly subscription</div>
+        <div class="container">
+            <div class="section-label">Pricing</div>
+            <h2>One investment. Permanent leverage.</h2>
+            <p class="section-text" style="margin-left: auto; margin-right: auto; text-align: center;">No monthly fees. No per-seat pricing. Your AI Chief of Staff, working for you.</p>
             
-            <ul class="price-includes">
-                <li><span class="check">✓</span> Full workflow analysis & setup</li>
-                <li><span class="check">✓</span> Integration with your tools (email, calendar, Slack, etc.)</li>
-                <li><span class="check">✓</span> Custom training on your business context</li>
-                <li><span class="check">✓</span> Secure deployment — you own all API keys</li>
-                <li><span class="check">✓</span> 30-day optimization period</li>
-                <li><span class="check">✓</span> Ongoing updates at no extra cost</li>
-            </ul>
-            
-            <a href="#" class="cta-button" style="width: 100%; text-align: center;">Start Your Installation</a>
+            <div class="pricing-card">
+                <h3>Envoy Installation</h3>
+                <p class="pricing-subtitle">Your personal AI command center</p>
+                <div class="price">$10,000</div>
+                <div class="price-sub">One-time setup · No monthly subscription</div>
+                
+                <ul class="price-includes">
+                    <li><span class="check">✓</span> Full workflow analysis & setup</li>
+                    <li><span class="check">✓</span> Integration with all your tools</li>
+                    <li><span class="check">✓</span> Custom training on your business</li>
+                    <li><span class="check">✓</span> Secure deployment — you own all keys</li>
+                    <li><span class="check">✓</span> 30-day optimization period</li>
+                    <li><span class="check">✓</span> Sub-agents for research, code, and more</li>
+                </ul>
+                
+                <a href="#" class="cta-button dark" style="width: 100%; text-align: center;">Start Your Installation</a>
+            </div>
         </div>
     </section>
     
     <section class="cta-section">
         <h2>Step from execution to leverage.</h2>
-        <p>Give every leader in your organization their own AI Chief of Staff. Never look back.</p>
+        <p>Give every leader in your organization their own AI Chief of Staff. Step into the cockpit. Never look back.</p>
         <a href="#" class="cta-button">Get Started</a>
     </section>
     
