@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Leap — Step Into Proactive AI</title>
+    <title>The Leap — Your AI Chief of Staff</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #fafafa;
+            --bg: #ffffff;
+            --bg-alt: #f9fafb;
             --bg-dark: #09090b;
-            --text: #18181b;
-            --text-muted: #71717a;
+            --text: #111827;
+            --text-muted: #6b7280;
             --accent: #2563eb;
             --accent-light: #3b82f6;
-            --card-bg: #ffffff;
-            --border: #e4e4e7;
-            --urgent: #dc2626;
+            --border: #e5e7eb;
+            --green: #059669;
+            --amber: #d97706;
+            --red: #dc2626;
         }
         
         * {
@@ -34,116 +36,59 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 24px;
         }
         
         /* Hero */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 120px 32px;
-            background: linear-gradient(180deg, #0a0a0a 0%, #18181b 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            padding: 100px 24px 80px;
+            text-align: center;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 70% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 40%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-        }
-        
-        .hero-content {
-            position: relative;
-            max-width: 900px;
-        }
-        
-        .hero-urgent {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(220, 38, 38, 0.15);
-            border: 1px solid rgba(220, 38, 38, 0.4);
-            padding: 10px 20px;
-            border-radius: 30px;
+        .hero-label {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 32px;
-            color: #fca5a5;
-        }
-        
-        .hero-urgent::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: #ef4444;
-            border-radius: 50%;
-            animation: blink 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+            margin-bottom: 24px;
         }
         
         h1 {
-            font-size: clamp(3rem, 7vw, 5rem);
-            font-weight: 900;
-            line-height: 1.05;
-            margin-bottom: 32px;
-            letter-spacing: -0.04em;
-        }
-        
-        h1 .highlight {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+            color: var(--text);
         }
         
         .hero-text {
-            font-size: 1.5rem;
-            color: #a1a1aa;
-            max-width: 720px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-        
-        .hero-subtext {
-            font-size: 1.125rem;
-            color: #71717a;
-            max-width: 640px;
-            margin-bottom: 48px;
+            font-size: 1.375rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 40px;
             line-height: 1.7;
         }
         
         .cta-group {
             display: flex;
             gap: 16px;
+            justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 64px;
         }
         
         .cta-button {
-            background: white;
-            color: var(--bg-dark);
+            background: var(--accent);
+            color: white;
             border: none;
-            padding: 20px 40px;
-            font-size: 1.125rem;
-            font-weight: 700;
-            border-radius: 12px;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s;
             text-decoration: none;
@@ -151,23 +96,48 @@
         }
         
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: var(--accent-light);
+            transform: translateY(-1px);
         }
         
         .cta-button.secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid #3f3f46;
+            background: white;
+            color: var(--text);
+            border: 1px solid var(--border);
         }
         
         .cta-button.secondary:hover {
-            border-color: #71717a;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        /* Capabilities ticker */
+        .capabilities-ticker {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cap-tag {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text);
         }
         
         /* Section */
         .section {
-            padding: 120px 32px;
+            padding: 100px 24px;
+        }
+        
+        .section-alt {
+            background: var(--bg-alt);
         }
         
         .section-dark {
@@ -180,8 +150,8 @@
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
         }
         
         .section-dark .section-label {
@@ -189,404 +159,341 @@
         }
         
         h2 {
-            font-size: clamp(2.25rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
+            font-size: clamp(1.875rem, 4vw, 2.75rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
         
         .section-text {
-            font-size: 1.25rem;
+            font-size: 1.1875rem;
             color: var(--text-muted);
-            max-width: 680px;
-            margin-bottom: 64px;
+            max-width: 640px;
             line-height: 1.8;
         }
         
         .section-dark .section-text {
-            color: #a1a1aa;
+            color: #9ca3af;
         }
         
-        /* The Transformation */
-        .transformation-section {
-            background: linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%);
-        }
-        
-        .transformation-intro {
+        /* The shift */
+        .shift-section {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 80px;
         }
         
-        .transformation-intro h2 {
-            margin-bottom: 32px;
-        }
-        
-        .transformation-intro p {
-            font-size: 1.375rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-        
-        .shift-comparison {
+        .shift-container {
             display: flex;
             gap: 24px;
             justify-content: center;
             align-items: stretch;
-            margin: 0 auto 64px;
-            max-width: 900px;
+            margin: 64px auto 0;
+            max-width: 800px;
             flex-wrap: wrap;
         }
         
         .shift-card {
             flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-            border-radius: 24px;
-            padding: 48px 36px;
+            min-width: 280px;
+            max-width: 360px;
+            padding: 36px 28px;
+            border-radius: 16px;
+            text-align: left;
         }
         
         .shift-before {
-            background: #e4e4e7;
-            border: 2px solid #d4d4d8;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
         }
         
         .shift-after {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
             color: white;
-            border: 2px solid #334155;
-            box-shadow: 0 32px 64px rgba(0,0,0,0.2);
-            transform: scale(1.02);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.15);
         }
         
-        .shift-era {
+        .shift-label {
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: var(--text-muted);
         }
         
-        .shift-before .shift-era {
-            color: #71717a;
-        }
-        
-        .shift-after .shift-era {
+        .shift-after .shift-label {
             color: #60a5fa;
         }
         
         .shift-card h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 32px;
-            letter-spacing: -0.02em;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
         
         .shift-before h3 {
-            color: #52525b;
-        }
-        
-        .shift-after h3 {
-            color: white;
+            color: #6b7280;
         }
         
         .shift-list {
             list-style: none;
-            margin-bottom: 32px;
+            font-size: 0.9375rem;
         }
         
         .shift-list li {
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            font-size: 1.0625rem;
+            padding: 8px 0;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         
         .shift-before .shift-list li {
-            color: #71717a;
+            color: #6b7280;
         }
         
         .shift-after .shift-list li {
-            border-bottom-color: rgba(255,255,255,0.1);
-            color: #e2e8f0;
-        }
-        
-        .shift-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .shift-list .icon {
-            font-size: 1.25rem;
-        }
-        
-        .shift-verdict {
-            font-weight: 700;
-            font-size: 1.125rem;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
-        
-        .shift-before .shift-verdict {
-            background: #d4d4d8;
-            color: #52525b;
-        }
-        
-        .shift-after .shift-verdict {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
+            color: #e5e7eb;
         }
         
         .shift-arrow {
             display: flex;
             align-items: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--accent);
-            font-weight: 700;
         }
         
-        .transformation-bottom {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 2px solid #e4e4e7;
-        }
-        
-        .transformation-bottom p {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-        
-        .transformation-bottom .sub {
-            font-size: 1.125rem;
-            font-weight: 400;
-            color: var(--text-muted);
-        }
-        
-        /* What it does to your team */
-        .team-section {
-            background: var(--bg-dark);
-            color: white;
-        }
-        
-        .team-grid {
+        /* Areas of contribution */
+        .areas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
         }
         
-        .team-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid #27272a;
-            border-radius: 20px;
-            padding: 40px;
+        .area-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
             transition: all 0.2s;
         }
         
-        .team-card:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: #3f3f46;
-            transform: translateY(-4px);
+        .area-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
         }
         
-        .team-icon {
-            font-size: 2.5rem;
-            margin-bottom: 24px;
-        }
-        
-        .team-card h3 {
-            font-size: 1.375rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: white;
-        }
-        
-        .team-card p {
-            color: #a1a1aa;
-            font-size: 1.0625rem;
-            line-height: 1.7;
-        }
-        
-        /* How you interface */
-        .interface-section {
-            background: #f4f4f5;
-        }
-        
-        .interface-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
-        }
-        
-        .interface-text h2 {
-            margin-bottom: 24px;
-        }
-        
-        .interface-text p {
-            font-size: 1.1875rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 32px;
-        }
-        
-        .interface-list {
-            list-style: none;
-        }
-        
-        .interface-list li {
-            padding: 16px 0;
-            border-bottom: 1px solid #e4e4e7;
+        .area-header {
             display: flex;
+            align-items: center;
             gap: 16px;
-            align-items: flex-start;
-            font-size: 1.0625rem;
+            margin-bottom: 20px;
         }
         
-        .interface-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .interface-list .check {
-            color: #22c55e;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-        
-        .interface-visual {
-            background: white;
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 24px 64px rgba(0,0,0,0.08);
-            border: 1px solid #e4e4e7;
-        }
-        
-        .interface-channels {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
-        
-        .channel-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #f4f4f5;
-            padding: 14px 20px;
+        .area-icon {
+            width: 48px;
+            height: 48px;
+            background: #eff6ff;
             border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            border: 1px solid #e4e4e7;
-        }
-        
-        .channel-badge .icon {
-            font-size: 1.25rem;
-        }
-        
-        /* Morning briefing */
-        .briefing-section {
-            background: white;
-        }
-        
-        .briefing-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 64px;
-        }
-        
-        .briefing-card {
-            background: #fafafa;
-            border: 1px solid #e4e4e7;
-            border-radius: 24px;
-            padding: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.04);
-        }
-        
-        .briefing-top {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #e4e4e7;
-        }
-        
-        .briefing-avatar {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--accent), #7c3aed);
-            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 800;
             font-size: 1.5rem;
         }
         
-        .briefing-meta h4 {
+        .area-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+        
+        .area-card > p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .area-example {
+            background: var(--bg-alt);
+            border-radius: 10px;
+            padding: 16px;
+            font-size: 0.875rem;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .area-example .label {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        
+        .area-example p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Message examples */
+        .examples-section {
+            overflow: hidden;
+        }
+        
+        .examples-header {
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+        
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        
+        .example-card {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 24px;
+            color: white;
+        }
+        
+        .example-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #60a5fa;
+            margin-bottom: 16px;
+        }
+        
+        .example-content {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: #e2e8f0;
+        }
+        
+        .example-content strong {
+            color: white;
+        }
+        
+        .example-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            margin-top: 16px;
+            color: #60a5fa;
+        }
+        
+        /* How it works */
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .how-step {
+            text-align: center;
+        }
+        
+        .how-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin: 0 auto 20px;
+        }
+        
+        .how-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 12px;
+        }
+        
+        .how-step p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+        
+        /* Morning briefing */
+        .briefing-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 800px;
+            margin: 48px auto 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+        
+        .briefing-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .briefing-avatar {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        
+        .briefing-meta h4 {
+            font-size: 1rem;
+            font-weight: 700;
         }
         
         .briefing-meta span {
             color: var(--text-muted);
+            font-size: 0.8125rem;
+        }
+        
+        .briefing-text {
             font-size: 0.9375rem;
-        }
-        
-        .briefing-greeting {
-            font-size: 1.125rem;
-            margin-bottom: 28px;
-            color: var(--text);
-        }
-        
-        .priority-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 32px;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
         
         .priority-item {
             display: flex;
-            gap: 20px;
-            padding: 24px;
-            background: white;
-            border-radius: 16px;
-            border-left: 4px solid #e4e4e7;
-            border: 1px solid #e4e4e7;
-            border-left-width: 4px;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-alt);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--accent);
         }
         
-        .priority-item.critical {
-            border-left-color: #ef4444;
+        .priority-item.urgent {
+            border-left-color: var(--red);
             background: #fef2f2;
         }
         
-        .priority-item.high {
-            border-left-color: #f59e0b;
-            background: #fffbeb;
-        }
-        
-        .priority-item.medium {
-            border-left-color: #3b82f6;
-            background: #eff6ff;
-        }
-        
         .priority-rank {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             background: var(--text);
             color: white;
             border-radius: 50%;
@@ -594,66 +501,35 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 0.9375rem;
+            font-size: 0.8125rem;
             flex-shrink: 0;
         }
         
-        .priority-content {
-            flex: 1;
-        }
-        
-        .priority-source {
-            margin-bottom: 8px;
-        }
-        
-        .source-tag {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.6875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        
-        .source-tag.slack { background: #4A154B; color: white; }
-        .source-tag.clickup { background: #7B68EE; color: white; }
-        .source-tag.email { background: #ea4335; color: white; }
-        
-        .priority-title {
-            font-weight: 700;
-            font-size: 1.0625rem;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
-        
-        .priority-detail {
-            color: var(--text-muted);
+        .priority-content h4 {
             font-size: 0.9375rem;
+            margin-bottom: 6px;
+        }
+        
+        .priority-content p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 16px;
         }
         
         .priority-actions {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
         }
         
         .action-btn {
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-size: 0.8125rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.75rem;
             font-weight: 600;
             border: 1px solid var(--border);
             background: white;
             cursor: pointer;
-            transition: all 0.15s;
-        }
-        
-        .action-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
         }
         
         .action-btn.primary {
@@ -662,292 +538,122 @@
             border-color: var(--accent);
         }
         
-        .briefing-summary {
-            background: #ecfdf5;
-            border: 1px solid #a7f3d0;
-            border-radius: 12px;
-            padding: 24px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+        /* Channels */
+        .channels-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        
+        .channel-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.08);
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Pricing */
+        .pricing-section {
             text-align: center;
         }
         
-        .summary-stat {
-            padding: 0 16px;
-        }
-        
-        .summary-stat:not(:last-child) {
-            border-right: 1px solid #a7f3d0;
-        }
-        
-        .summary-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #059669;
-            margin-bottom: 4px;
-        }
-        
-        .summary-label {
-            font-size: 0.875rem;
-            color: #065f46;
-        }
-        
-        /* Economics */
-        .economics-section {
-            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
-        }
-        
-        .economics-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 64px;
-        }
-        
-        .economics-header h2 {
-            margin-bottom: 20px;
-        }
-        
-        .economics-header p {
-            font-size: 1.25rem;
-            color: #92400e;
-        }
-        
-        .economics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-        }
-        
-        .economics-card {
+        .pricing-card {
             background: white;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 48px 40px;
+            max-width: 480px;
+            margin: 48px auto 0;
+            box-shadow: 0 16px 48px rgba(37, 99, 235, 0.1);
         }
         
-        .economics-card h3 {
+        .pricing-card h3 {
             font-size: 1.375rem;
             margin-bottom: 8px;
         }
         
-        .economics-card > p {
+        .pricing-sub {
             color: var(--text-muted);
             margin-bottom: 28px;
-            font-size: 1rem;
-        }
-        
-        .payback-highlight {
-            text-align: center;
-            padding: 32px;
-            background: #eff6ff;
-            border-radius: 16px;
-            margin-bottom: 24px;
-        }
-        
-        .payback-number {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-        
-        .payback-label {
-            font-size: 1.125rem;
-            color: #1e40af;
-            font-weight: 600;
-        }
-        
-        .payback-math {
-            font-size: 0.9375rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-        
-        .waste-list {
-            list-style: none;
-        }
-        
-        .waste-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid #f4f4f5;
-            font-size: 0.9375rem;
-        }
-        
-        .waste-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .waste-hours {
-            color: #dc2626;
-            font-weight: 700;
-        }
-        
-        .waste-total {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            background: #fef2f2;
-            border-radius: 12px;
-            margin-top: 16px;
-            font-weight: 700;
-        }
-        
-        .waste-total span:last-child {
-            color: #dc2626;
-        }
-        
-        /* Pricing / CTA */
-        .final-cta {
-            background: linear-gradient(180deg, #0a0a0a 0%, #18181b 100%);
-            color: white;
-            text-align: center;
-            padding: 120px 32px;
-        }
-        
-        .final-cta h2 {
-            color: white;
-            max-width: 700px;
-            margin: 0 auto 24px;
-        }
-        
-        .final-cta > p {
-            color: #a1a1aa;
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto 48px;
-            line-height: 1.7;
-        }
-        
-        .pricing-box {
-            background: rgba(255,255,255,0.03);
-            border: 2px solid #27272a;
-            border-radius: 24px;
-            padding: 56px 48px;
-            max-width: 500px;
-            margin: 0 auto 48px;
-        }
-        
-        .pricing-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-        
-        .pricing-sub {
-            color: #71717a;
-            margin-bottom: 32px;
         }
         
         .price {
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 8px;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #fff, #a1a1aa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
         }
         
         .price-note {
-            color: #71717a;
-            margin-bottom: 40px;
-            font-size: 1.0625rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
         }
         
-        .pricing-includes {
+        .pricing-list {
             text-align: left;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
         
-        .pricing-includes li {
+        .pricing-list li {
             list-style: none;
-            padding: 14px 0;
-            border-bottom: 1px solid #27272a;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            gap: 14px;
-            font-size: 1rem;
-            color: #d4d4d8;
+            gap: 12px;
+            font-size: 0.9375rem;
         }
         
-        .pricing-includes li:last-child {
+        .pricing-list li:last-child {
             border-bottom: none;
         }
         
-        .pricing-includes .check {
-            color: #22c55e;
+        .pricing-list .check {
+            color: var(--green);
             font-size: 1.125rem;
-        }
-        
-        .urgency-note {
-            color: #fca5a5;
-            font-size: 0.9375rem;
-            margin-top: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 32px;
-            background: #09090b;
-            color: #52525b;
+            padding: 48px 24px;
+            background: var(--bg-alt);
+            color: var(--text-muted);
             font-size: 0.875rem;
         }
         
         /* Responsive */
-        @media (max-width: 900px) {
-            .interface-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .interface-visual {
-                order: -1;
-            }
-        }
-        
         @media (max-width: 768px) {
             .hero {
-                padding: 80px 24px;
+                padding: 60px 20px 40px;
             }
             
             .section {
-                padding: 80px 24px;
+                padding: 60px 20px;
             }
             
-            .shift-comparison {
+            .shift-container {
                 flex-direction: column;
                 align-items: center;
             }
             
             .shift-arrow {
                 transform: rotate(90deg);
-                margin: -8px 0;
             }
             
-            .shift-after {
-                transform: none;
-            }
-            
-            .briefing-summary {
+            .example-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
             }
             
-            .summary-stat {
-                border-right: none !important;
-                border-bottom: 1px solid #a7f3d0;
-                padding-bottom: 16px;
-            }
-            
-            .summary-stat:last-child {
-                border-bottom: none;
+            .briefing-card {
+                padding: 24px 20px;
             }
             
             .priority-item {
@@ -955,12 +661,12 @@
                 gap: 12px;
             }
             
-            .pricing-box {
-                padding: 40px 28px;
+            .pricing-card {
+                padding: 36px 28px;
             }
             
             .price {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
         }
     </style>
@@ -968,146 +674,227 @@
 <body>
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-urgent">The transformation is happening now</div>
-            <h1>Take <span class="highlight">The Leap.</span></h1>
-            <p class="hero-text">AI just changed. It can reason. It can act. It can solve problems end-to-end without waiting for you.</p>
-            <p class="hero-subtext">This is the system that puts you on the right side of that shift. Everyone else is already falling behind.</p>
+        <div class="container">
+            <div class="hero-label">Every leader needs one</div>
+            <h1>Your AI Chief of Staff</h1>
+            <p class="hero-text">An AI that manages your priorities, handles the busywork, deploys solutions, and keeps your department running — not just answers questions.</p>
+            
             <div class="cta-group">
                 <a href="#pricing" class="cta-button">Get The Leap</a>
-                <a href="#transformation" class="cta-button secondary">See the shift →</a>
+                <a href="#areas" class="cta-button secondary">See what it does →</a>
+            </div>
+            
+            <div class="capabilities-ticker">
+                <div class="cap-tag">priorities</div>
+                <div class="cap-tag">briefings</div>
+                <div class="cap-tag">research</div>
+                <div class="cap-tag">reports</div>
+                <div class="cap-tag">follow-ups</div>
+                <div class="cap-tag">scheduling</div>
+                <div class="cap-tag">documents</div>
+                <div class="cap-tag">apps</div>
             </div>
         </div>
     </section>
     
-    <!-- The Transformation -->
-    <section class="section transformation-section" id="transformation">
+    <!-- The Shift -->
+    <section class="section section-alt shift-section">
         <div class="container">
-            <div class="transformation-intro">
-                <div class="section-label">The Transformation</div>
-                <h2>AI grew a spine in 2024.</h2>
-                <p>Large language models could always process words. Now they can <em>reason through problems step by step</em>. They can hold context, weigh tradeoffs, and execute with the reliability that used to require a human. This changes everything.</p>
-            </div>
+            <div class="section-label">The Shift</div>
+            <h2>AI just became capable enough to work for you.</h2>
+            <p class="section-text" style="max-width: 680px; margin: 0 auto;">In 2024, AI learned to reason. It can now hold context, weigh tradeoffs, and execute multi-step tasks reliably. This changes what's possible.</p>
             
-            <div class="shift-comparison">
+            <div class="shift-container">
                 <div class="shift-card shift-before">
-                    <div class="shift-era">Before</div>
+                    <div class="shift-label">Before</div>
                     <h3>Reactive AI</h3>
                     <ul class="shift-list">
-                        <li><span class="icon">💬</span> Answers questions</li>
-                        <li><span class="icon">📋</span> Summarizes content</li>
-                        <li><span class="icon">💡</span> Suggests options</li>
-                        <li><span class="icon">⏳</span> Waits for prompts</li>
+                        <li>💬 Answers questions</li>
+                        <li>📋 Summarizes content</li>
+                        <li>💡 Suggests options</li>
+                        <li>⏳ Waits for prompts</li>
                     </ul>
-                    <div class="shift-verdict">You do the work.<br>AI assists.</div>
                 </div>
                 
                 <div class="shift-arrow">→</div>
                 
                 <div class="shift-card shift-after">
-                    <div class="shift-era">Now</div>
+                    <div class="shift-label">Now</div>
                     <h3>Proactive AI</h3>
                     <ul class="shift-list">
-                        <li><span class="icon">⚡</span> Codes its own solutions</li>
-                        <li><span class="icon">🔧</span> Solves problems end-to-end</li>
-                        <li><span class="icon">🚀</span> Deploys and executes</li>
-                        <li><span class="icon">🎯</span> Acts on your behalf</li>
+                        <li>⚡ Solves problems end-to-end</li>
+                        <li>🔧 Builds and deploys solutions</li>
+                        <li>🎯 Acts on your behalf</li>
+                        <li>📡 Monitors and alerts</li>
                     </ul>
-                    <div class="shift-verdict">AI does the work.<br>You make decisions.</div>
-                </div>
-            </div>
-            
-            <div class="transformation-bottom">
-                <p>This is the lever to your labor you've been waiting for.</p>
-                <p class="sub">The Leap is the system that installs proactive AI into your organization.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- What it does to your team -->
-    <section class="section team-section">
-        <div class="container">
-            <div class="section-label">What It Does To Your Team</div>
-            <h2>Every leader becomes a department of one.</h2>
-            <p class="section-text">The Leap gives each person in your organization the leverage of an entire support staff — without the headcount.</p>
-            
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-icon">🔭</div>
-                    <h3>Perfect visibility</h3>
-                    <p>Everything happening across Slack, email, docs, and tasks — synthesized into a single view. No more hunting for information.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-icon">🎯</div>
-                    <h3>Automatic prioritization</h3>
-                    <p>The system knows what matters. It surfaces high-leverage items first and handles the rest without your attention.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-icon">⚡</div>
-                    <h3>Execution on demand</h3>
-                    <p>Need research? A report? A website? The system deploys sub-agents to build it — while you move to the next decision.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-icon">🧠</div>
-                    <h3>Institutional memory</h3>
-                    <p>Context never gets lost. The system remembers every decision, every thread, every detail — so your team doesn't have to.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-icon">🔄</div>
-                    <h3>Continuous operation</h3>
-                    <p>Runs 24/7. Drafts responses overnight. Prepares briefings before you wake up. Handles follow-ups you'd forget.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-icon">📈</div>
-                    <h3>Compounding leverage</h3>
-                    <p>The system learns your priorities, your style, your business. It gets better every week. The gap between you and competitors grows.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- How you interface -->
-    <section class="section interface-section">
+    <!-- Areas of Contribution -->
+    <section class="section" id="areas">
         <div class="container">
-            <div class="interface-content">
-                <div class="interface-text">
-                    <div class="section-label">How You Interface</div>
-                    <h2>Talk to it like a chief of staff.</h2>
-                    <p>No dashboards to learn. No new software to adopt. The Leap meets you where you already are — Slack, SMS, email, voice — and works the way you think.</p>
-                    
-                    <ul class="interface-list">
-                        <li><span class="check">✓</span> Message it like a trusted employee</li>
-                        <li><span class="check">✓</span> Receives proactive briefings daily</li>
-                        <li><span class="check">✓</span> Approve, reject, or modify with one tap</li>
-                        <li><span class="check">✓</span> Expands autonomy as trust builds</li>
-                    </ul>
+            <div class="section-label">Areas of Contribution</div>
+            <h2>What your AI Chief of Staff actually does</h2>
+            <p class="section-text">The Leap works across your entire stack — Slack, email, docs, tasks — and handles the work that eats your day.</p>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-header">
+                        <div class="area-icon">📊</div>
+                        <h3>Daily Prioritization</h3>
+                    </div>
+                    <p>Synthesizes everything happening across your tools and tells you exactly what needs attention — ranked by leverage, not recency.</p>
+                    <div class="area-example">
+                        <div class="label">Example</div>
+                        <p>"Your top 3 today: MasonHub payment ($12K at risk), festival inventory decision (vendor waiting), and the legal doc that came in overnight."</p>
+                    </div>
                 </div>
                 
-                <div class="interface-visual">
-                    <div class="interface-channels">
-                        <div class="channel-badge"><span class="icon">💬</span> Slack</div>
-                        <div class="channel-badge"><span class="icon">📱</span> SMS</div>
-                        <div class="channel-badge"><span class="icon">📧</span> Email</div>
-                        <div class="channel-badge"><span class="icon">🎙️</span> Voice</div>
-                        <div class="channel-badge"><span class="icon">✈️</span> Telegram</div>
-                        <div class="channel-badge"><span class="icon">💻</span> Web</div>
+                <div class="area-card">
+                    <div class="area-header">
+                        <div class="area-icon">📧</div>
+                        <h3>Communications</h3>
+                    </div>
+                    <p>Drafts emails, follows up on threads, and handles the back-and-forth that never ends. You approve. It sends.</p>
+                    <div class="area-example">
+                        <div class="label">Example</div>
+                        <p>"I've drafted a follow-up to the vendor who hasn't responded in 4 days. Want me to send it, or should I call instead?"</p>
+                    </div>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-header">
+                        <div class="area-icon">🔬</div>
+                        <h3>Research & Analysis</h3>
+                    </div>
+                    <p>Digs into competitors, markets, data — whatever you need. Returns with answers, not links.</p>
+                    <div class="area-example">
+                        <div class="label">Example</div>
+                        <p>"Competitor launched a new pricing tier yesterday. Here's how it compares to ours, with 3 response options."</p>
+                    </div>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-header">
+                        <div class="area-icon">📝</div>
+                        <h3>Documents & Reports</h3>
+                    </div>
+                    <p>Creates board decks, weekly reports, project summaries — formatted and ready for review.</p>
+                    <div class="area-example">
+                        <div class="label">Example</div>
+                        <p>"Weekly report is ready. Revenue up 12%, support tickets down 8%. One flag: churn ticked up in enterprise tier."</p>
+                    </div>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-header">
+                        <div class="area-icon">⚙️</div>
+                        <h3>Builds & Deploys</h3>
+                    </div>
+                    <p>Needs a dashboard? A landing page? An internal tool? It codes, tests, and ships — you just describe what you need.</p>
+                    <div class="area-example">
+                        <div class="label">Example</div>
+                        <p>"Built the competitor tracker you asked about. It pulls pricing and changelog updates daily. Here's the link →"</p>
+                    </div>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-header">
+                        <div class="area-icon">🔔</div>
+                        <h3>Monitoring & Alerts</h3>
+                    </div>
+                    <p>Watches your metrics, your inbox, your channels. Spots problems before they escalate and proposes fixes.</p>
+                    <div class="area-example">
+                        <div class="label">Example</div>
+                        <p>"CPA jumped 23% this week. I checked — 'enterprise' ad group is underperforming. Want me to pause it?"</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Morning briefing -->
-    <section class="section briefing-section">
+    <!-- Real Examples -->
+    <section class="section section-dark examples-section">
         <div class="container">
-            <div class="briefing-header">
-                <div class="section-label">Your Morning Briefing</div>
-                <h2>This is what leverage looks like.</h2>
-                <p class="section-text" style="margin: 24px auto 0;">Every morning, The Leap synthesizes everything happening across your organization and tells you exactly what to focus on.</p>
+            <div class="examples-header">
+                <div class="section-label">How It Actually Looks</div>
+                <h2>The Leap works where you work.</h2>
+                <p class="section-text">It lives in Slack, SMS, or wherever you prefer. Here's what that looks like day-to-day.</p>
+            </div>
+            
+            <div class="example-grid">
+                <div class="example-card">
+                    <div class="example-label">Proactive Alert</div>
+                    <div class="example-content">
+                        <p><strong>3 users reported checkout failures.</strong> I checked the logs — it's a Stripe webhook timeout. Want me to open an issue for engineering?</p>
+                        <div class="example-action">✓ Create Issue</div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-label">Follow-up Handling</div>
+                    <div class="example-content">
+                        <p><strong>Sarah from ops hasn't responded to the inventory request</strong> (3 days). I can ping her again or escalate to her manager. Which?</p>
+                        <div class="example-action">📤 Send Follow-up</div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-label">Research Complete</div>
+                    <div class="example-content">
+                        <p><strong>Finished the vendor comparison.</strong> 4 options, ranked by price and reliability. Top pick saves $8K/year with better SLAs. Full doc attached.</p>
+                        <div class="example-action">📄 View Analysis</div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-label">Weekly Report</div>
+                    <div class="example-content">
+                        <p><strong>Your week in 30 seconds:</strong> Revenue +8%, NPS stable, 2 hires closed. One flag: engineering velocity dipped — I flagged it to the EM.</p>
+                        <div class="example-action">📊 Full Report</div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-label">Meeting Prep</div>
+                    <div class="example-content">
+                        <p><strong>You have a board meeting in 2 hours.</strong> I've prepared the deck, pulled the latest metrics, and drafted talking points for the Q&A section.</p>
+                        <div class="example-action">📑 Review Deck</div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-label">Tool Built</div>
+                    <div class="example-content">
+                        <p><strong>Built the dashboard you described yesterday.</strong> Shows real-time pipeline by rep, with filters by stage and close date. Deployed here →</p>
+                        <div class="example-action">🔗 Open Dashboard</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="channels-row">
+                <div class="channel-badge">💬 Slack</div>
+                <div class="channel-badge">📱 SMS</div>
+                <div class="channel-badge">📧 Email</div>
+                <div class="channel-badge">✈️ Telegram</div>
+                <div class="channel-badge">🎙️ Voice</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Morning Briefing -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <div class="section-label">Your Morning</div>
+                <h2>Start every day knowing exactly what matters</h2>
+                <p class="section-text" style="margin: 0 auto;">The Leap synthesizes everything overnight and delivers a briefing before you start work.</p>
             </div>
             
             <div class="briefing-card">
-                <div class="briefing-top">
+                <div class="briefing-header">
                     <div class="briefing-avatar">L</div>
                     <div class="briefing-meta">
                         <h4>The Leap</h4>
@@ -1115,141 +902,109 @@
                     </div>
                 </div>
                 
-                <p class="briefing-greeting">Good morning. Here's what needs your attention today, ranked by leverage:</p>
+                <p class="briefing-text">Good morning. Here's what needs your attention today:</p>
                 
-                <div class="priority-list">
-                    <div class="priority-item critical">
-                        <div class="priority-rank">1</div>
-                        <div class="priority-content">
-                            <div class="priority-source"><span class="source-tag slack">Slack</span></div>
-                            <div class="priority-title">MasonHub payment rejected — $12.4K outstanding</div>
-                            <div class="priority-detail">CFO flagged this yesterday. Shipments hold if not resolved today. I've drafted an email to their AR team.</div>
-                            <div class="priority-actions">
-                                <button class="action-btn primary">Review & Send</button>
-                                <button class="action-btn">Escalate</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="priority-item high">
-                        <div class="priority-rank">2</div>
-                        <div class="priority-content">
-                            <div class="priority-source"><span class="source-tag clickup">ClickUp</span></div>
-                            <div class="priority-title">Festival inventory — decision needed by Friday</div>
-                            <div class="priority-detail">Vendor holding $48K order. I pulled last year's data: 94% sell-through at EDC, 87% at Coachella. Recommendation: proceed.</div>
-                            <div class="priority-actions">
-                                <button class="action-btn primary">Approve</button>
-                                <button class="action-btn">See Analysis</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="priority-item medium">
-                        <div class="priority-rank">3</div>
-                        <div class="priority-content">
-                            <div class="priority-source"><span class="source-tag email">Email</span></div>
-                            <div class="priority-title">Legal sent revised acquisition terms</div>
-                            <div class="priority-detail">14-page doc arrived at 11:47 PM. Key change: earnout structure. I've summarized it into 3 bullets for your review.</div>
-                            <div class="priority-actions">
-                                <button class="action-btn primary">Read Summary</button>
-                                <button class="action-btn">Full Doc</button>
-                            </div>
+                <div class="priority-item urgent">
+                    <div class="priority-rank">1</div>
+                    <div class="priority-content">
+                        <h4>MasonHub payment rejected — $12K at risk</h4>
+                        <p>Shipments hold if not resolved by EOD. I've drafted an email to their AR team.</p>
+                        <div class="priority-actions">
+                            <button class="action-btn primary">Review & Send</button>
+                            <button class="action-btn">Call Instead</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="briefing-summary">
-                    <div class="summary-stat">
-                        <div class="summary-number">35 min</div>
-                        <div class="summary-label">To clear high-leverage items</div>
+                <div class="priority-item">
+                    <div class="priority-rank">2</div>
+                    <div class="priority-content">
+                        <h4>Festival inventory — vendor waiting</h4>
+                        <p>$48K order, pricing expires Friday. Last year: 94% sell-through. Recommendation: approve.</p>
+                        <div class="priority-actions">
+                            <button class="action-btn primary">Approve</button>
+                            <button class="action-btn">See Data</button>
+                        </div>
                     </div>
-                    <div class="summary-stat">
-                        <div class="summary-number">12</div>
-                        <div class="summary-label">Emails drafted overnight</div>
-                    </div>
-                    <div class="summary-stat">
-                        <div class="summary-number">3</div>
-                        <div class="summary-label">Meetings prepped</div>
+                </div>
+                
+                <div class="priority-item">
+                    <div class="priority-rank">3</div>
+                    <div class="priority-content">
+                        <h4>Legal sent revised terms (11:47 PM)</h4>
+                        <p>14-page doc. Key change: earnout structure. I've summarized into 3 bullets.</p>
+                        <div class="priority-actions">
+                            <button class="action-btn primary">Read Summary</button>
+                            <button class="action-btn">Full Doc</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Economics -->
-    <section class="section economics-section">
+    <!-- How it works -->
+    <section class="section section-alt">
         <div class="container">
-            <div class="economics-header">
-                <div class="section-label">The Payback</div>
-                <h2>The math is embarrassingly simple.</h2>
-                <p>Your expensive people are spending their time on work an AI can now do. That's waste. The Leap eliminates it.</p>
+            <div style="text-align: center;">
+                <div class="section-label">How It Works</div>
+                <h2>Live in weeks, not months</h2>
+                <p class="section-text" style="margin: 0 auto;">We install The Leap into your workflow. You own it. No monthly fees.</p>
             </div>
             
-            <div class="economics-grid">
-                <div class="economics-card">
-                    <h3>Time You're Losing</h3>
-                    <p>A typical leader loses hours every week to low-leverage work:</p>
-                    <ul class="waste-list">
-                        <li><span>Sorting and triaging email</span> <span class="waste-hours">5 hrs</span></li>
-                        <li><span>Status updates and check-ins</span> <span class="waste-hours">4 hrs</span></li>
-                        <li><span>Searching for information</span> <span class="waste-hours">3 hrs</span></li>
-                        <li><span>Scheduling coordination</span> <span class="waste-hours">2 hrs</span></li>
-                        <li><span>Follow-ups and reminders</span> <span class="waste-hours">2 hrs</span></li>
-                    </ul>
-                    <div class="waste-total">
-                        <span>Recoverable per week</span>
-                        <span>16 hours</span>
-                    </div>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="how-number">1</div>
+                    <h3>We learn your workflow</h3>
+                    <p>Deep dive into your tools, priorities, communication style, and how your team operates.</p>
                 </div>
-                
-                <div class="economics-card">
-                    <h3>Your Payback Period</h3>
-                    <p>For a $100K employee who becomes twice as effective:</p>
-                    <div class="payback-highlight">
-                        <div class="payback-number">6</div>
-                        <div class="payback-label">weeks to payback</div>
-                    </div>
-                    <p class="payback-math">
-                        $100K salary = $8,333/month in company cost<br>
-                        2x productivity = $8,333/month in recovered value<br>
-                        $10K investment ÷ $8,333 = <strong>6 weeks</strong><br><br>
-                        After that, every hour saved is pure ROI.
-                    </p>
+                <div class="how-step">
+                    <div class="how-number">2</div>
+                    <h3>We build your system</h3>
+                    <p>Connect your tools, train on your context, configure your preferences and autonomy levels.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-number">3</div>
+                    <h3>We go live</h3>
+                    <p>Deploy with human-in-the-loop. Start with approvals on everything, expand autonomy as trust builds.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-number">4</div>
+                    <h3>You own it</h3>
+                    <p>All API keys are yours. Your data stays yours. No ongoing subscription. It's your system.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Final CTA -->
-    <section class="final-cta" id="pricing">
+    <!-- Pricing -->
+    <section class="section pricing-section" id="pricing">
         <div class="container">
-            <h2>The gap is opening.<br>Which side are you on?</h2>
-            <p>Every week you wait, the organizations that moved first get further ahead. The Leap isn't a nice-to-have. It's infrastructure for the new era.</p>
+            <div class="section-label">Pricing</div>
+            <h2>One investment. Permanent leverage.</h2>
+            <p class="section-text" style="margin: 0 auto; text-align: center;">No monthly fees. No per-seat pricing. Install once, use forever.</p>
             
-            <div class="pricing-box">
-                <h3>The Leap System</h3>
-                <p class="pricing-sub">Proactive AI installed in your organization</p>
+            <div class="pricing-card">
+                <h3>The Leap Installation</h3>
+                <p class="pricing-sub">Your AI Chief of Staff, fully configured</p>
                 <div class="price">$10,000</div>
-                <p class="price-note">One-time installation · No monthly fees</p>
+                <p class="price-note">One-time · No subscription</p>
                 
-                <ul class="pricing-includes">
-                    <li><span class="check">✓</span> Full workflow analysis & build</li>
+                <ul class="pricing-list">
+                    <li><span class="check">✓</span> Full workflow analysis & setup</li>
                     <li><span class="check">✓</span> Integration with all your tools</li>
                     <li><span class="check">✓</span> Custom training on your business</li>
-                    <li><span class="check">✓</span> Sub-agents for research, code, docs</li>
                     <li><span class="check">✓</span> 30-day optimization period</li>
-                    <li><span class="check">✓</span> You own all keys · Your data stays yours</li>
+                    <li><span class="check">✓</span> You own all keys & data</li>
                 </ul>
                 
                 <a href="#" class="cta-button" style="width: 100%; text-align: center;">Start Your Installation</a>
-                
-                <p class="urgency-note">⚡ Currently accepting 3 installations per month</p>
             </div>
         </div>
     </section>
     
     <footer>
-        <p>The Leap — Proactive AI for Organizations</p>
+        <p>The Leap — Your AI Chief of Staff</p>
     </footer>
 </body>
 </html>
