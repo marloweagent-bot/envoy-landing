@@ -480,6 +480,283 @@
             font-size: 0.9rem;
         }
         
+        /* Envoy Message */
+        .envoy-message {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        }
+        
+        .envoy-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .envoy-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        .envoy-name {
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        .envoy-time {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .envoy-greeting {
+            font-size: 1.0625rem;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        
+        .priority-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .priority-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 12px;
+            border-left: 4px solid #e4e4e7;
+        }
+        
+        .priority-item.priority-critical {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+        
+        .priority-item.priority-high {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+        
+        .priority-item.priority-medium {
+            border-left-color: #3b82f6;
+            background: #eff6ff;
+        }
+        
+        .priority-item.priority-low {
+            border-left-color: #22c55e;
+            background: #f0fdf4;
+        }
+        
+        .priority-rank {
+            width: 32px;
+            height: 32px;
+            background: var(--text);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+        
+        .priority-content {
+            flex: 1;
+        }
+        
+        .priority-source {
+            margin-bottom: 6px;
+        }
+        
+        .source-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        
+        .source-tag.slack {
+            background: #4A154B;
+            color: white;
+        }
+        
+        .source-tag.clickup {
+            background: #7B68EE;
+            color: white;
+        }
+        
+        .source-tag.email {
+            background: #ea4335;
+            color: white;
+        }
+        
+        .priority-title {
+            font-weight: 600;
+            font-size: 1.0625rem;
+            margin-bottom: 8px;
+        }
+        
+        .priority-detail {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .priority-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .action-btn.primary {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        .action-btn.primary:hover {
+            background: var(--accent-light);
+        }
+        
+        .envoy-summary {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 20px;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: #166534;
+        }
+        
+        /* Economics */
+        .economics-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+        }
+        
+        .economics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .economics-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        
+        .economics-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .economics-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .economics-highlight {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+        
+        .economics-label {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+        
+        .waste-list {
+            list-style: none;
+        }
+        
+        .waste-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .waste-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .waste-hours {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .roi-calc {
+            background: #eff6ff;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        
+        .roi-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #dbeafe;
+        }
+        
+        .roi-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            padding-top: 16px;
+            margin-top: 8px;
+            border-top: 2px solid var(--accent);
+        }
+        
+        .roi-row span:last-child {
+            font-weight: 600;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -500,6 +777,27 @@
             
             .cockpit-visual {
                 padding: 32px 24px;
+            }
+            
+            .envoy-message {
+                padding: 24px 20px;
+            }
+            
+            .priority-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .priority-rank {
+                align-self: flex-start;
+            }
+            
+            .economics-card {
+                padding: 28px 24px;
+            }
+            
+            .economics-highlight {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -571,6 +869,87 @@
                         <div class="cockpit-icon">📅</div>
                         <h4>Calendar</h4>
                         <p>Time & commitments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-label">See It In Action</div>
+            <h2>Your morning briefing from Envoy</h2>
+            <p class="section-text">Every day, Envoy synthesizes everything happening across your tools and tells you exactly what to focus on.</p>
+            
+            <div class="envoy-message">
+                <div class="envoy-header">
+                    <div class="envoy-avatar">E</div>
+                    <div class="envoy-meta">
+                        <div class="envoy-name">Envoy</div>
+                        <div class="envoy-time">Today at 8:02 AM</div>
+                    </div>
+                </div>
+                <div class="envoy-body">
+                    <p class="envoy-greeting">Good morning. Here's what needs your attention today, ranked by leverage:</p>
+                    
+                    <div class="priority-list">
+                        <div class="priority-item priority-critical">
+                            <div class="priority-rank">1</div>
+                            <div class="priority-content">
+                                <div class="priority-source"><span class="source-tag slack">Slack</span> #finance-team</div>
+                                <div class="priority-title">MasonHub ACH payment rejected — $12.4K outstanding</div>
+                                <div class="priority-detail">CFO flagged this yesterday. Shipments may hold if not resolved by EOD. I've drafted an email to their AR team.</div>
+                                <div class="priority-actions">
+                                    <button class="action-btn primary">Review & Send Email</button>
+                                    <button class="action-btn">Escalate to Call</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-item priority-high">
+                            <div class="priority-rank">2</div>
+                            <div class="priority-content">
+                                <div class="priority-source"><span class="source-tag clickup">ClickUp</span> Q2 Planning</div>
+                                <div class="priority-title">Festival inventory order — decision needed</div>
+                                <div class="priority-detail">Vendor holding pricing until Friday. Order is $48K. I've pulled last year's sell-through data: 94% at EDC, 87% at Coachella. Recommendation: proceed.</div>
+                                <div class="priority-actions">
+                                    <button class="action-btn primary">Approve Order</button>
+                                    <button class="action-btn">See Analysis</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-item priority-medium">
+                            <div class="priority-rank">3</div>
+                            <div class="priority-content">
+                                <div class="priority-source"><span class="source-tag email">Email</span> Partnership</div>
+                                <div class="priority-title">Live Nation legal sent revised acquisition terms</div>
+                                <div class="priority-detail">Received 11:47 PM last night. Key change: earnout structure modified. I've summarized the 14-page doc into 3 bullet points for your review.</div>
+                                <div class="priority-actions">
+                                    <button class="action-btn primary">Read Summary</button>
+                                    <button class="action-btn">Full Document</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="priority-item priority-low">
+                            <div class="priority-rank">4</div>
+                            <div class="priority-content">
+                                <div class="priority-source"><span class="source-tag slack">Slack</span> #product</div>
+                                <div class="priority-title">New sample photos ready for approval</div>
+                                <div class="priority-detail">Design team posted 6 colorway options. Team is leaning toward Option B. This can wait until after your 2pm.</div>
+                                <div class="priority-actions">
+                                    <button class="action-btn">View Photos</button>
+                                    <button class="action-btn">Defer to Tomorrow</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="envoy-summary">
+                        <strong>Estimated time to clear high-leverage items:</strong> 35 minutes<br>
+                        <strong>Meetings today:</strong> 3 (I've prepped briefs for each)<br>
+                        <strong>Items I handled automatically:</strong> 12 emails drafted, 4 follow-ups sent, 2 calendar conflicts resolved
                     </div>
                 </div>
             </div>
@@ -652,6 +1031,60 @@
                     <div class="solve-icon">🚀</div>
                     <h4>Deployments</h4>
                     <p>Ship changes without waiting on anyone</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section economics-section">
+        <div class="container">
+            <div class="section-label">The Economics</div>
+            <h2>Your expensive employees are wasting time.</h2>
+            <p class="section-text">Leaders earning $100K+ spend the majority of their time on low-leverage work. Envoy changes the math.</p>
+            
+            <div class="economics-grid">
+                <div class="economics-card">
+                    <h3>The Waste</h3>
+                    <p>A typical department head loses hours every week to work an AI could handle:</p>
+                    <ul class="waste-list">
+                        <li><span>Sorting and triaging email</span> <span class="waste-hours">5 hrs/week</span></li>
+                        <li><span>Status updates and check-ins</span> <span class="waste-hours">4 hrs/week</span></li>
+                        <li><span>Searching for information</span> <span class="waste-hours">3 hrs/week</span></li>
+                        <li><span>Scheduling and coordination</span> <span class="waste-hours">2 hrs/week</span></li>
+                        <li><span>Follow-ups and reminders</span> <span class="waste-hours">2 hrs/week</span></li>
+                    </ul>
+                    <div style="margin-top: 20px; padding-top: 16px; border-top: 2px solid #f0f0f0;">
+                        <div class="economics-highlight">16 hrs</div>
+                        <div class="economics-label">Recoverable time per week</div>
+                    </div>
+                </div>
+                
+                <div class="economics-card">
+                    <h3>The Payback</h3>
+                    <p>If Envoy makes a $100K employee twice as effective:</p>
+                    <div class="roi-calc">
+                        <div class="roi-row">
+                            <span>Annual salary</span>
+                            <span>$100,000</span>
+                        </div>
+                        <div class="roi-row">
+                            <span>Monthly cost to company</span>
+                            <span>$8,333</span>
+                        </div>
+                        <div class="roi-row">
+                            <span>Productivity gain (2x)</span>
+                            <span>$8,333/mo</span>
+                        </div>
+                        <div class="roi-row">
+                            <span>Envoy investment</span>
+                            <span>$10,000</span>
+                        </div>
+                        <div class="roi-row">
+                            <span>Payback period</span>
+                            <span style="color: #22c55e;">1.2 months</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; margin-bottom: 0; font-size: 0.9375rem;">After 6 weeks, every hour Envoy saves is pure ROI. For a $150K employee, payback drops to under 4 weeks.</p>
                 </div>
             </div>
         </div>
