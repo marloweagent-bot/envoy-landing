@@ -305,42 +305,46 @@
             transition: all 0.2s;
         }
         
-        .area-card:hover {
+        /* Examples Grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        
+        .example-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+        
+        .example-card:hover {
             border-color: var(--blue-200);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
         }
         
-        .area-icon {
-            font-size: 2rem;
+        .example-text {
+            font-size: 0.9375rem;
+            color: #111827;
+            line-height: 1.5;
             margin-bottom: 16px;
         }
         
-        .area-card h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 12px;
+        .example-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         
-        .area-card > p {
-            color: #6b7280;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .area-example {
-            background: #f9fafb;
-            border-radius: 8px;
-            padding: 16px;
-            font-size: 0.875rem;
-        }
-        
-        .area-example .label {
-            font-size: 0.6875rem;
-            font-weight: 700;
-            color: #6b7280;
-            text-transform: uppercase;
-            margin-bottom: 6px;
+        .action-tag {
+            background: var(--blue-50);
+            color: var(--blue-600);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
         }
         
         /* System */
@@ -513,7 +517,7 @@
         
         /* Responsive */
         @media (max-width: 900px) {
-            .grid-3, .grid-4 {
+            .grid-3, .grid-4, .examples-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -664,45 +668,65 @@
     <!-- Areas -->
     <section class="section">
         <div class="container">
-            <div class="section-label">Areas of Contribution</div>
+            <div class="section-label">In Action</div>
             <h2>What Archie actually does</h2>
-            <p class="section-text">Works across your entire stack. Handles the work that eats your day.</p>
+            <p class="section-text">Real examples. Real actions. This is what shows up in your inbox.</p>
             
-            <div class="grid-2">
-                <div class="area-card">
-                    <div class="area-icon">📊</div>
-                    <h3>Daily Prioritization</h3>
-                    <p>Synthesizes everything across your tools. Tells you exactly what needs attention, ranked by leverage.</p>
-                    <div class="area-example">
-                        <div class="label">Example</div>
-                        <p>"Your top 3 today: MasonHub payment ($12K at risk), festival inventory decision, legal doc from last night."</p>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">"MasonHub payment rejected — $12K at risk. Shipments hold if not resolved today."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">Draft email</span>
+                        <span class="action-tag">Escalate to call</span>
                     </div>
                 </div>
-                <div class="area-card">
-                    <div class="area-icon">📧</div>
-                    <h3>Communications</h3>
-                    <p>Drafts emails, follows up on threads, handles the back-and-forth. You approve. It sends.</p>
-                    <div class="area-example">
-                        <div class="label">Example</div>
-                        <p>"Drafted a follow-up to the vendor who hasn't responded in 4 days. Send it or escalate to call?"</p>
+                <div class="example-card">
+                    <p class="example-text">"Vendor hasn't responded in 4 days. I've drafted a follow-up."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">Send follow-up</span>
+                        <span class="action-tag">Loop in manager</span>
                     </div>
                 </div>
-                <div class="area-card">
-                    <div class="area-icon">🔬</div>
-                    <h3>Research & Analysis</h3>
-                    <p>Digs into competitors, markets, data. Returns with answers, not links.</p>
-                    <div class="area-example">
-                        <div class="label">Example</div>
-                        <p>"Competitor launched new pricing. Here's comparison with 3 response options."</p>
+                <div class="example-card">
+                    <p class="example-text">"Competitor launched new pricing tier yesterday. Here's how it compares."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">View analysis</span>
+                        <span class="action-tag">Share with team</span>
                     </div>
                 </div>
-                <div class="area-card">
-                    <div class="area-icon">⚙️</div>
-                    <h3>Builds & Deploys</h3>
-                    <p>Dashboard? Landing page? Internal tool? Describe it. It codes, tests, ships.</p>
-                    <div class="area-example">
-                        <div class="label">Example</div>
-                        <p>"Built the competitor tracker. Pulls pricing and changelogs daily. Link: →"</p>
+                <div class="example-card">
+                    <p class="example-text">"Board meeting in 2 hours. Deck is ready, metrics pulled, talking points drafted."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">Review deck</span>
+                        <span class="action-tag">Send to attendees</span>
+                    </div>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">"3 users reported checkout failures. It's a Stripe webhook timeout."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">Create ticket</span>
+                        <span class="action-tag">Notify engineering</span>
+                    </div>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">"Legal sent revised acquisition terms at 11pm. Key changes summarized."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">Read summary</span>
+                        <span class="action-tag">Open full doc</span>
+                    </div>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">"Built the competitor tracker you asked about. Pulls data daily."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">View dashboard</span>
+                        <span class="action-tag">Add metrics</span>
+                    </div>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">"Your CPA jumped 23% this week. 'Enterprise' ad group underperforming."</p>
+                    <div class="example-actions">
+                        <span class="action-tag">Pause campaign</span>
+                        <span class="action-tag">See breakdown</span>
                     </div>
                 </div>
             </div>
