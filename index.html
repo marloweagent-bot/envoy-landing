@@ -131,8 +131,41 @@
             color: var(--text);
         }
         
-        .integrations-bar {
+        .capability-pillars {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
             margin-top: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .pillar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .pillar-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        
+        .pillar strong {
+            font-size: 1.125rem;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        
+        .pillar span:last-child {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        .integrations-bar {
+            margin-top: 40px;
             padding-top: 32px;
             border-top: 1px solid var(--border);
             display: flex;
@@ -836,7 +869,7 @@
         <div class="container">
             <div class="hero-label">For founders, by founders</div>
             <h1>Your AI Chief of Staff</h1>
-            <p class="hero-text">An AI that manages your priorities, handles the busywork, deploys solutions, and keeps your business running — so you can live in the world of high-leverage.</p>
+            <p class="hero-text">Know anything. Deploy anything. Build anything. Already fully connected to how your unique business runs.</p>
             
             <div class="cta-group">
                 <a href="#pricing" class="cta-button">Get Archie</a>
@@ -852,6 +885,24 @@
                 <div class="cap-tag">scheduling</div>
                 <div class="cap-tag">documents</div>
                 <div class="cap-tag">apps</div>
+            </div>
+            
+            <div class="capability-pillars">
+                <div class="pillar">
+                    <span class="pillar-icon">🧠</span>
+                    <strong>Know anything</strong>
+                    <span>Instant answers across all your tools, docs, and history</span>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-icon">🚀</span>
+                    <strong>Deploy anything</strong>
+                    <span>Ship dashboards, reports, landing pages, automations</span>
+                </div>
+                <div class="pillar">
+                    <span class="pillar-icon">🔧</span>
+                    <strong>Build anything</strong>
+                    <span>Code, research, analysis — describe it, it's done</span>
+                </div>
             </div>
             
             <div class="integrations-bar">
