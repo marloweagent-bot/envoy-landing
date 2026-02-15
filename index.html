@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envoy — Your AI Chief of Staff</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --bg-dark: #09090b;
+            --text: #18181b;
+            --text-muted: #71717a;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --card-bg: #ffffff;
+            --border: #e4e4e7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 24px;
+            background: linear-gradient(180deg, #f0f4ff 0%, #fafafa 100%);
+        }
+        
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 800px;
+            letter-spacing: -0.03em;
+        }
+        
+        h1 span {
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Problem Section */
+        .section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-text {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 48px;
+        }
+        
+        /* Problem cards */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .problem-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        
+        .problem-card .old {
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+        
+        .problem-card p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
+        
+        /* Solution */
+        .solution-section {
+            background: var(--bg-dark);
+            color: white;
+            padding: 100px 24px;
+        }
+        
+        .solution-section .section-label {
+            color: #60a5fa;
+        }
+        
+        .solution-section h2 {
+            color: white;
+        }
+        
+        .solution-section .section-text {
+            color: #a1a1aa;
+        }
+        
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .capability-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.2s;
+        }
+        
+        .capability-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        
+        .capability-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .capability-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: white;
+        }
+        
+        .capability-card p {
+            color: #a1a1aa;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        
+        /* Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .process-step {
+            text-align: center;
+        }
+        
+        .process-number {
+            width: 56px;
+            height: 56px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+        }
+        
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
+        
+        /* Pricing */
+        .pricing-section {
+            background: linear-gradient(180deg, #fafafa 0%, #f0f4ff 100%);
+            text-align: center;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 480px;
+            margin: 48px auto 0;
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .price-sub {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        
+        .price-includes {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        
+        .price-includes li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .price-includes li:last-child {
+            border-bottom: none;
+        }
+        
+        .check {
+            color: #22c55e;
+            font-weight: bold;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-dark);
+            color: white;
+            text-align: center;
+            padding: 100px 24px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            color: #a1a1aa;
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-section .cta-button {
+            background: white;
+            color: var(--bg-dark);
+        }
+        
+        .cta-section .cta-button:hover {
+            background: #f0f0f0;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .pricing-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="badge">AI Chief of Staff</div>
+        <h1>Stop executing.<br>Start <span>leading.</span></h1>
+        <p class="hero-sub">Envoy is your AI Chief of Staff — handling communications, surfacing decisions, and keeping you focused on what only you can do.</p>
+        <a href="#pricing" class="cta-button">Get Your Envoy</a>
+    </section>
+    
+    <section class="section">
+        <div class="section-label">The Problem</div>
+        <h2>Work has changed. Leadership hasn't.</h2>
+        <p class="section-text">Leaders spend 80% of their time on execution — emails, scheduling, data gathering, follow-ups. That leaves 20% for actual leadership. AI inverts this.</p>
+        
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="old">Before</div>
+                <h3>Inbox overwhelm</h3>
+                <p>Hours lost to emails that could be drafted, delegated, or ignored.</p>
+            </div>
+            <div class="problem-card">
+                <div class="old">Before</div>
+                <h3>Decision fog</h3>
+                <p>Important decisions buried under urgent but trivial ones.</p>
+            </div>
+            <div class="problem-card">
+                <div class="old">Before</div>
+                <h3>Context switching</h3>
+                <p>Constantly pulled between strategy and operations.</p>
+            </div>
+            <div class="problem-card">
+                <div class="old">Before</div>
+                <h3>Dropped balls</h3>
+                <p>Follow-ups forgotten. Commitments missed. Trust eroded.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="solution-section">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-label">The Solution</div>
+            <h2>Your AI Chief of Staff</h2>
+            <p class="section-text">Envoy handles the execution so you can focus on judgment. It's not another tool — it's leverage.</p>
+            
+            <div class="capability-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">💬</div>
+                    <h3>Communications</h3>
+                    <p>Drafts emails, prioritizes your inbox, handles follow-ups. You review and send — or let Envoy handle it entirely.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">📊</div>
+                    <h3>Financial Visibility</h3>
+                    <p>Pulls data from your systems, surfaces anomalies, prepares reports. Know your numbers without digging.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🎯</div>
+                    <h3>Decision Triaging</h3>
+                    <p>Identifies decisions that need your judgment, ranks by leverage, provides context and recommendations.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">⏰</div>
+                    <h3>Auto Reminders</h3>
+                    <p>Tracks commitments, nudges follow-ups, ensures nothing falls through the cracks. Your external memory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="section-label">How It Works</div>
+        <h2>From zero to operational in weeks</h2>
+        <p class="section-text">We don't just hand you software. We build your AI Chief of Staff with you.</p>
+        
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h3>We Work With You</h3>
+                <p>Deep dive into your workflow, priorities, and communication style.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h3>We Learn Your Business</h3>
+                <p>Connect your tools, ingest your context, understand your team.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h3>We Install</h3>
+                <p>Deploy your Envoy with full security — you own all keys and data.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h3>You Go Live</h3>
+                <p>Start with human-in-the-loop, expand autonomy as trust builds.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section pricing-section" id="pricing">
+        <div class="section-label">Pricing</div>
+        <h2>One investment. Permanent leverage.</h2>
+        <p class="section-text">No monthly fees. No per-seat pricing. Just your AI Chief of Staff, working for you.</p>
+        
+        <div class="pricing-card">
+            <h3>Envoy Installation</h3>
+            <div class="price">$10,000</div>
+            <div class="price-sub">One-time setup · No monthly subscription</div>
+            
+            <ul class="price-includes">
+                <li><span class="check">✓</span> Full workflow analysis & setup</li>
+                <li><span class="check">✓</span> Integration with your tools (email, calendar, Slack, etc.)</li>
+                <li><span class="check">✓</span> Custom training on your business context</li>
+                <li><span class="check">✓</span> Secure deployment — you own all API keys</li>
+                <li><span class="check">✓</span> 30-day optimization period</li>
+                <li><span class="check">✓</span> Ongoing updates at no extra cost</li>
+            </ul>
+            
+            <a href="#" class="cta-button" style="width: 100%; text-align: center;">Start Your Installation</a>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2>Step from execution to leverage.</h2>
+        <p>Give every leader in your organization their own AI Chief of Staff. Never look back.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </section>
+    
+    <footer>
+        <p>Envoy — Your AI Chief of Staff</p>
+    </footer>
+</body>
+</html>
