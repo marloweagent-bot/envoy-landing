@@ -137,22 +137,26 @@
             background: var(--accent);
             color: var(--accent-foreground);
             border: 2px solid var(--accent);
-            padding: 20px 48px;
+            height: 56px;
+            padding: 0 48px;
             font-size: clamp(0.875rem, 1.25vw, 1rem);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: -0.02em;
             cursor: pointer;
-            transition: all 0.1s;
+            transition: all 0.3s;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .cta-button:hover {
-            background: var(--foreground);
-            border-color: var(--foreground);
-            transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0 var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .cta-button:active {
+            transform: scale(0.95);
         }
         
         .cta-button.secondary {
@@ -165,8 +169,13 @@
             background: var(--foreground);
             color: var(--background);
             border-color: var(--foreground);
-            transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0 var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .cta-button.large {
+            height: 80px;
+            padding: 0 64px;
+            font-size: 1.125rem;
         }
         
         /* Stats Marquee */
@@ -256,14 +265,14 @@
         .pillar {
             padding: 48px 40px;
             background: var(--background);
-            transition: all 0.1s;
+            transition: all 0.3s;
         }
         
         .pillar:hover {
             background: var(--accent);
-            color: var(--accent-foreground);
         }
         
+        .pillar:hover h3,
         .pillar:hover .pillar-label {
             color: var(--accent-foreground);
         }
@@ -274,11 +283,12 @@
             line-height: 0.8;
             margin-bottom: 32px;
             color: var(--muted);
+            transition: all 0.3s;
         }
         
         .pillar:hover .pillar-number {
             color: var(--accent-foreground);
-            opacity: 0.3;
+            opacity: 0.2;
         }
         
         .pillar h3 {
@@ -287,12 +297,14 @@
             text-transform: uppercase;
             margin-bottom: 16px;
             letter-spacing: -0.02em;
+            transition: all 0.3s;
         }
         
         .pillar-label {
             font-size: clamp(0.9375rem, 1.5vw, 1.25rem);
             color: var(--muted-foreground);
             line-height: 1.6;
+            transition: all 0.3s;
         }
         
         /* Areas Grid */
@@ -307,16 +319,37 @@
         .area-card {
             padding: 48px;
             background: var(--background);
-            transition: all 0.1s;
+            transition: all 0.3s;
         }
         
         .area-card:hover {
-            background: var(--muted);
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .area-card:hover .area-icon,
+        .area-card:hover h3,
+        .area-card:hover p {
+            color: var(--accent-foreground);
+        }
+        
+        .area-card:hover p {
+            opacity: 0.8;
+        }
+        
+        .area-card:hover .area-example {
+            background: var(--accent-foreground);
+            color: var(--foreground);
+        }
+        
+        .area-card:hover .area-example .label {
+            color: var(--accent);
         }
         
         .area-icon {
             font-size: 3rem;
             margin-bottom: 24px;
+            transition: all 0.3s;
         }
         
         .area-card h3 {
@@ -325,6 +358,7 @@
             text-transform: uppercase;
             margin-bottom: 16px;
             letter-spacing: -0.01em;
+            transition: all 0.3s;
         }
         
         .area-card p {
@@ -332,6 +366,7 @@
             font-size: clamp(1rem, 1.5vw, 1.25rem);
             line-height: 1.6;
             margin-bottom: 32px;
+            transition: all 0.3s;
         }
         
         .area-example {
@@ -340,6 +375,7 @@
             padding: 20px 24px;
             font-size: clamp(0.9375rem, 1.25vw, 1.125rem);
             color: var(--foreground);
+            transition: all 0.3s;
         }
         
         .area-example .label {
@@ -349,6 +385,7 @@
             letter-spacing: 0.15em;
             color: var(--accent);
             margin-bottom: 8px;
+            transition: all 0.3s;
         }
         
         /* Shift Section */
@@ -896,7 +933,7 @@
                     <li><span class="check">✓</span> You own all keys & data</li>
                 </ul>
                 <div class="price-cta">
-                    <a href="#" class="cta-button">START YOUR INSTALLATION</a>
+                    <a href="#" class="cta-button large">START YOUR INSTALLATION</a>
                 </div>
             </div>
         </div>
