@@ -465,6 +465,69 @@
             transition: all 0.3s;
         }
         
+        /* Traits Grid */
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 2px solid var(--border);
+        }
+        
+        .trait {
+            padding: 40px 32px;
+            background: var(--background);
+            transition: all 0.3s;
+        }
+        
+        .trait:hover {
+            background: var(--accent);
+        }
+        
+        .trait:hover .trait-icon,
+        .trait:hover h3,
+        .trait:hover p {
+            color: var(--accent-foreground);
+        }
+        
+        .trait-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .trait h3 {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+        
+        .trait p {
+            font-size: clamp(0.875rem, 1.25vw, 1rem);
+            color: var(--muted-foreground);
+            line-height: 1.6;
+            transition: all 0.3s;
+        }
+        
+        @media (max-width: 900px) {
+            .traits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trait {
+                padding: 32px 24px;
+            }
+        }
+        
         /* Shift Section */
         .shift-grid {
             display: grid;
@@ -929,6 +992,38 @@
                     <div class="pillar-number" aria-hidden="true">03</div>
                     <h3>ACHIEVE MORE</h3>
                     <p class="pillar-label">Reclaim 16+ hours every week. Focus on decisions, not busywork. Do more, be more, build more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Archie Works -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-label">// WHY IT WORKS</div>
+            <h2>PERSISTENT. PROACTIVE. YOURS.</h2>
+            <p class="section-text">Archie isn't a chatbot you prompt. It's a system that knows your business and works while you sleep.</p>
+            
+            <div class="traits-grid">
+                <div class="trait">
+                    <div class="trait-icon">🧠</div>
+                    <h3>HAS MEMORY</h3>
+                    <p>Remembers every decision, every thread, every context. Never asks the same question twice.</p>
+                </div>
+                <div class="trait">
+                    <div class="trait-icon">🔗</div>
+                    <h3>KNOWS YOUR BUSINESS</h3>
+                    <p>Trained on your workflows, your priorities, your people. Speaks your language from day one.</p>
+                </div>
+                <div class="trait">
+                    <div class="trait-icon">⚡</div>
+                    <h3>CONNECTED TO CHOKEPOINTS</h3>
+                    <p>Plugged into Slack, email, docs, tasks — wherever decisions stall. Sees everything.</p>
+                </div>
+                <div class="trait">
+                    <div class="trait-icon">🔄</div>
+                    <h3>PERSISTENT & PROACTIVE</h3>
+                    <p>Runs 24/7. Alerts you to problems before they escalate. Acts without being asked.</p>
                 </div>
             </div>
         </div>
