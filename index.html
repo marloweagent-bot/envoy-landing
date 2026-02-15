@@ -131,6 +131,81 @@
             color: var(--text);
         }
         
+        .integrations-bar {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .int-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .int-logos {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .int-logo {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        /* Value Props */
+        .value-props {
+            background: var(--bg-dark);
+            padding: 48px 24px;
+        }
+        
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .prop-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .prop-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .prop-text {
+            color: white;
+        }
+        
+        .prop-text strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        
+        .prop-text span {
+            font-size: 0.9375rem;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        
         /* Section */
         .section {
             padding: 100px 24px;
@@ -675,9 +750,9 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-label">Every leader needs one</div>
+            <div class="hero-label">For founders, by founders</div>
             <h1>Your AI Chief of Staff</h1>
-            <p class="hero-text">An AI that manages your priorities, handles the busywork, deploys solutions, and keeps your department running — not just answers questions.</p>
+            <p class="hero-text">An AI that manages your priorities, handles the busywork, deploys solutions, and keeps your business running — so you can live in the world of high-leverage.</p>
             
             <div class="cta-group">
                 <a href="#pricing" class="cta-button">Get The Leap</a>
@@ -693,6 +768,19 @@
                 <div class="cap-tag">scheduling</div>
                 <div class="cap-tag">documents</div>
                 <div class="cap-tag">apps</div>
+            </div>
+            
+            <div class="integrations-bar">
+                <span class="int-label">Secure integrations day one:</span>
+                <div class="int-logos">
+                    <span class="int-logo">Shopify</span>
+                    <span class="int-logo">Slack</span>
+                    <span class="int-logo">Notion</span>
+                    <span class="int-logo">ClickUp</span>
+                    <span class="int-logo">Gmail</span>
+                    <span class="int-logo">Calendar</span>
+                    <span class="int-logo">+ more</span>
+                </div>
             </div>
         </div>
     </section>
@@ -727,6 +815,35 @@
                         <li>🎯 Acts on your behalf</li>
                         <li>📡 Monitors and alerts</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Value Props -->
+    <section class="value-props">
+        <div class="container">
+            <div class="props-grid">
+                <div class="prop-item">
+                    <div class="prop-icon">🔐</div>
+                    <div class="prop-text">
+                        <strong>Secure integrations, day one.</strong>
+                        <span>Connect Shopify, Slack, Notion, ClickUp, Gmail — you name it. Your keys, your data.</span>
+                    </div>
+                </div>
+                <div class="prop-item">
+                    <div class="prop-icon">⚡</div>
+                    <div class="prop-text">
+                        <strong>Overcome technical hurdles fast.</strong>
+                        <span>We handle the hard parts. You're live in weeks, not months of engineering.</span>
+                    </div>
+                </div>
+                <div class="prop-item">
+                    <div class="prop-icon">🎯</div>
+                    <div class="prop-text">
+                        <strong>Live in the world of high-leverage.</strong>
+                        <span>Stop drowning in busywork. Focus on decisions that actually move the needle.</span>
+                    </div>
                 </div>
             </div>
         </div>
