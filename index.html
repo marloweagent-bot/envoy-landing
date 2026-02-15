@@ -325,6 +325,25 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
         }
         
+        .category-tag {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        
+        .category-tag.finance { background: #dcfce7; color: #166534; }
+        .category-tag.communication { background: #dbeafe; color: #1e40af; }
+        .category-tag.research { background: #fef3c7; color: #92400e; }
+        .category-tag.preparation { background: #f3e8ff; color: #6b21a8; }
+        .category-tag.analytics { background: #fce7f3; color: #9d174d; }
+        .category-tag.materials { background: #e0e7ff; color: #3730a3; }
+        .category-tag.marketing { background: #ffedd5; color: #c2410c; }
+        
         .example-text {
             font-size: 0.9375rem;
             color: #111827;
@@ -695,6 +714,7 @@
             
             <div class="examples-grid">
                 <div class="example-card">
+                    <span class="category-tag finance">Finance</span>
                     <p class="example-text">"MasonHub payment rejected — $12K at risk. Shipments hold if not resolved today."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">Draft email</span>
@@ -702,6 +722,7 @@
                     </div>
                 </div>
                 <div class="example-card">
+                    <span class="category-tag communication">Communication</span>
                     <p class="example-text">"Vendor hasn't responded in 4 days. I've drafted a follow-up."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">Send follow-up</span>
@@ -709,6 +730,7 @@
                     </div>
                 </div>
                 <div class="example-card">
+                    <span class="category-tag research">Research</span>
                     <p class="example-text">"Competitor launched new pricing tier yesterday. Here's how it compares."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">View analysis</span>
@@ -716,6 +738,7 @@
                     </div>
                 </div>
                 <div class="example-card">
+                    <span class="category-tag preparation">Preparation</span>
                     <p class="example-text">"Board meeting in 2 hours. Deck is ready, metrics pulled, talking points drafted."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">Review deck</span>
@@ -723,6 +746,7 @@
                     </div>
                 </div>
                 <div class="example-card">
+                    <span class="category-tag analytics">Analytics</span>
                     <p class="example-text">"3 users reported checkout failures. It's a Stripe webhook timeout."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">Create ticket</span>
@@ -730,6 +754,7 @@
                     </div>
                 </div>
                 <div class="example-card">
+                    <span class="category-tag materials">Materials</span>
                     <p class="example-text">"Legal sent revised acquisition terms at 11pm. Key changes summarized."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">Read summary</span>
@@ -737,6 +762,7 @@
                     </div>
                 </div>
                 <div class="example-card">
+                    <span class="category-tag research">Research</span>
                     <p class="example-text">"Built the competitor tracker you asked about. Pulls data daily."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">View dashboard</span>
@@ -744,6 +770,7 @@
                     </div>
                 </div>
                 <div class="example-card">
+                    <span class="category-tag marketing">Marketing</span>
                     <p class="example-text">"Your CPA jumped 23% this week. 'Enterprise' ad group underperforming."</p>
                     <div class="example-actions">
                         <span class="action-tag primary">Pause campaign</span>
