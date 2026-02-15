@@ -67,11 +67,11 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
         
-        /* Marquee */
+        /* Marquee - Full Bleed */
         .marquee {
             background: var(--accent);
             color: var(--accent-foreground);
-            padding: 12px 0;
+            padding: 16px 0;
             overflow: hidden;
             white-space: nowrap;
             border-bottom: 2px solid var(--border);
@@ -678,19 +678,22 @@
             font-size: 0.875rem;
         }
         
-        /* Responsive */
+        /* Responsive - Mobile First */
         @media (max-width: 900px) {
+            .hero {
+                padding: 80px 16px;
+            }
+            
+            .section {
+                padding: 80px 16px;
+            }
+            
             .pillars-grid {
                 grid-template-columns: 1fr;
             }
             
             .pillar {
-                border-right: none;
-                border-bottom: 2px solid var(--border);
-            }
-            
-            .pillar:last-child {
-                border-bottom: none;
+                padding: 40px 24px;
             }
             
             .areas-grid {
@@ -698,15 +701,12 @@
             }
             
             .area-card {
-                border-right: none;
+                padding: 32px 24px;
             }
             
-            .area-card:nth-last-child(-n+2) {
-                border-bottom: 2px solid var(--border);
-            }
-            
-            .area-card:last-child {
-                border-bottom: none;
+            /* Show descriptions always on mobile */
+            .area-card p {
+                opacity: 1;
             }
             
             .shift-grid {
@@ -722,13 +722,73 @@
                 padding: 12px;
             }
             
+            .shift-card {
+                padding: 32px 24px;
+            }
+            
             .system-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .system-col {
+                padding: 32px 24px;
             }
             
             .system-col:first-child {
                 border-right: none;
                 border-bottom: 2px solid var(--border);
+            }
+            
+            .system-note {
+                padding: 40px 24px;
+            }
+            
+            .price-box {
+                margin: 48px 0 0;
+            }
+            
+            .price-header,
+            .price-features,
+            .price-cta {
+                padding: 24px;
+            }
+            
+            .price-amount {
+                padding: 40px 24px;
+            }
+            
+            /* Larger touch targets */
+            .cta-button {
+                height: 56px;
+                min-width: 44px;
+                padding: 0 32px;
+            }
+            
+            .cta-button.large {
+                height: 64px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 64px 16px;
+            }
+            
+            .section {
+                padding: 64px 16px;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .cta-button {
+                width: 100%;
+            }
+            
+            .stat-item {
+                padding: 0 40px;
             }
         }
     </style>
