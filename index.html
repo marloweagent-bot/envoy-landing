@@ -150,7 +150,7 @@
         /* Cards */
         .card {
             background: #ffffff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #9ca3af;
             border-radius: 12px;
             padding: 32px;
         }
@@ -178,7 +178,7 @@
             padding: 40px 24px;
             background: #ffffff;
             border-radius: 12px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #9ca3af;
             transition: all 0.2s;
         }
         
@@ -209,7 +209,7 @@
         .trait {
             padding: 24px;
             background: #ffffff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #9ca3af;
             border-radius: 12px;
             transition: all 0.2s;
         }
@@ -299,7 +299,7 @@
         /* Areas */
         .area-card {
             background: #ffffff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #9ca3af;
             border-radius: 12px;
             padding: 32px;
             transition: all 0.2s;
@@ -314,7 +314,7 @@
         
         .example-card {
             background: #ffffff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #9ca3af;
             border-radius: 12px;
             padding: 20px;
             transition: all 0.2s;
@@ -339,12 +339,33 @@
         }
         
         .action-tag {
-            background: var(--blue-50);
-            color: var(--blue-600);
             font-size: 0.75rem;
             font-weight: 600;
             padding: 6px 12px;
             border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .action-tag.primary {
+            background: var(--blue-600);
+            color: #ffffff;
+        }
+        
+        .action-tag.primary:hover {
+            background: var(--blue-500);
+            transform: translateY(-1px);
+        }
+        
+        .action-tag.secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .action-tag.secondary:hover {
+            background: #e5e7eb;
+            transform: translateY(-1px);
         }
         
         /* System */
@@ -429,7 +450,7 @@
         }
         
         .price-box {
-            border: 1px solid #e5e7eb;
+            border: 1px solid #9ca3af;
             border-radius: 16px;
             overflow: hidden;
             text-align: left;
@@ -676,57 +697,57 @@
                 <div class="example-card">
                     <p class="example-text">"MasonHub payment rejected — $12K at risk. Shipments hold if not resolved today."</p>
                     <div class="example-actions">
-                        <span class="action-tag">Draft email</span>
-                        <span class="action-tag">Escalate to call</span>
+                        <span class="action-tag primary">Draft email</span>
+                        <span class="action-tag secondary">Escalate to call</span>
                     </div>
                 </div>
                 <div class="example-card">
                     <p class="example-text">"Vendor hasn't responded in 4 days. I've drafted a follow-up."</p>
                     <div class="example-actions">
-                        <span class="action-tag">Send follow-up</span>
-                        <span class="action-tag">Loop in manager</span>
+                        <span class="action-tag primary">Send follow-up</span>
+                        <span class="action-tag secondary">Loop in manager</span>
                     </div>
                 </div>
                 <div class="example-card">
                     <p class="example-text">"Competitor launched new pricing tier yesterday. Here's how it compares."</p>
                     <div class="example-actions">
-                        <span class="action-tag">View analysis</span>
-                        <span class="action-tag">Share with team</span>
+                        <span class="action-tag primary">View analysis</span>
+                        <span class="action-tag secondary">Share with team</span>
                     </div>
                 </div>
                 <div class="example-card">
                     <p class="example-text">"Board meeting in 2 hours. Deck is ready, metrics pulled, talking points drafted."</p>
                     <div class="example-actions">
-                        <span class="action-tag">Review deck</span>
-                        <span class="action-tag">Send to attendees</span>
+                        <span class="action-tag primary">Review deck</span>
+                        <span class="action-tag secondary">Send to attendees</span>
                     </div>
                 </div>
                 <div class="example-card">
                     <p class="example-text">"3 users reported checkout failures. It's a Stripe webhook timeout."</p>
                     <div class="example-actions">
-                        <span class="action-tag">Create ticket</span>
-                        <span class="action-tag">Notify engineering</span>
+                        <span class="action-tag primary">Create ticket</span>
+                        <span class="action-tag secondary">Notify engineering</span>
                     </div>
                 </div>
                 <div class="example-card">
                     <p class="example-text">"Legal sent revised acquisition terms at 11pm. Key changes summarized."</p>
                     <div class="example-actions">
-                        <span class="action-tag">Read summary</span>
-                        <span class="action-tag">Open full doc</span>
+                        <span class="action-tag primary">Read summary</span>
+                        <span class="action-tag secondary">Open full doc</span>
                     </div>
                 </div>
                 <div class="example-card">
                     <p class="example-text">"Built the competitor tracker you asked about. Pulls data daily."</p>
                     <div class="example-actions">
-                        <span class="action-tag">View dashboard</span>
-                        <span class="action-tag">Add metrics</span>
+                        <span class="action-tag primary">View dashboard</span>
+                        <span class="action-tag secondary">Add metrics</span>
                     </div>
                 </div>
                 <div class="example-card">
                     <p class="example-text">"Your CPA jumped 23% this week. 'Enterprise' ad group underperforming."</p>
                     <div class="example-actions">
-                        <span class="action-tag">Pause campaign</span>
-                        <span class="action-tag">See breakdown</span>
+                        <span class="action-tag primary">Pause campaign</span>
+                        <span class="action-tag secondary">See breakdown</span>
                     </div>
                 </div>
             </div>
